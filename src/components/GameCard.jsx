@@ -5,7 +5,7 @@ const Card = ({ icon,title,content }) => {
   return (
     <>
       <div className="lg:p-4 md:m-full flex justify-center mt-40">
-        <div className="max-w-sm rounded-2xl overflow-hoddem shadow-lg">
+        <div className="max-w-xs rounded-2xl overflow-hidden shadow-lg">
           <img className="w-full" src={icon} alt={title} />
 
           <div className="px-6 py-4 lg:h-44">

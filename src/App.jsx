@@ -9,11 +9,11 @@ function App() {
   return (
     <Router>
       <div className="bg-primary w-full overflow-hidden">
-        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-            <div className={`${styles.boxWidth}`}></div>
-            <Navbar/>
-        </div>
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}>
+        <Navbar />
       </div>
+    </div>
       <Switch>
           <Route exact path ="/"><Home/></Route>
       </Switch>
@@ -22,7 +22,7 @@ function App() {
           <Footer />
         </div>
       </div>
-
+      </div>
     </Router>
   );
 }

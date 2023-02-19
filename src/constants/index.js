@@ -1,4 +1,4 @@
-import { kalamkaari  } from "../assets";
+import { kalamkaari, Enuncify  } from "../assets";
 
 export const navLinks = [
   {
@@ -29,7 +29,7 @@ export const games = [
   },
   {
     id: "game-2",
-    icon: kalamkaari,
+    icon: Enuncify,
     title: "Enuncify",
     content:
       "Learn to understand the context of the sentences by speaking with correct sentiment and pronunciation",
