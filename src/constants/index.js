@@ -32,7 +32,7 @@ export const games = [
     icon: Enuncify,
     title: "Enuncify",
     content:
-      "Learn to understand the context of the sentences by speaking with correct sentiment and pronunciation",
+      "Learn to understand the context of the sentences by speaking with correct sentiment and pronunciation.",
   },
   {
     id: "game-3",
