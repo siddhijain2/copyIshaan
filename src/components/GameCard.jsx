@@ -22,8 +22,9 @@ const Card = ({ icon,title,content }) => {
             <p className='text-gray-700 text-base'>
                 {content}
             </p>
+            <Button className="px-6 pt- pb-2 justify-center" styles={`mt-2`} text={`Play`}/>
           </div>
-          <Button className="px-6 pt-4 pb-2" styles={`mt-10`} text={`Play`}/>
+          
         </div>
       </div>
     </>

@@ -7,13 +7,13 @@ const Hero = () => {
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
 
         <div className="flex flex-row justify-between items-center w-full">
-          <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-BlackOlive ss:leading-[100.8px] leading-[75px]">
+          <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[42px] text-BlackOlive ss:leading-[100.8px] leading-[75px]">
             Reshaping Assessibilty in<br className="sm:block hidden" />{" "}
             <span className="bg-gradient-to-r from-AirForceBlue via-green-500 to-AirForceBlue inline-block text-transparent bg-clip-text"> Education</span>{" "}
           </h1>
         </div>
 
-        <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-BlackOlive ss:leading-[100.8px] leading-[75px] w-full">
+        <h1 className="font-poppins font-semibold ss:text-[68px] text-[42px] text-BlackOlive ss:leading-[100.8px] leading-[75px] w-full">
           through AI.
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
@@ -24,7 +24,7 @@ const Hero = () => {
       </div>
 
       <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
-        <img src={hero} alt="kids" className="h-[500px] relative z-[5]" />
+        <img src={hero} alt="kids" className="w-[85%] relative z-[5]" />
 
         {/* gradient start */}
         {/* <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
