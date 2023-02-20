@@ -8,7 +8,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="w-full flex py-6 justify-between items-center navbar">
+    <nav className="fixed top-0 z-50 bg-primary w-full flex p-4 justify-between items-center navbar">
       <img src={Logo} alt="logo" className=" h-[80px]" />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -29,14 +29,14 @@ const Navbar = () => {
         <img
           src={toggle ? close : menu}
           alt="menu"
-          className="w-[28px] h-[28px] object-contain"
+          className=" h-[40px] object-contain"
           onClick={() => setToggle(!toggle)}
         />
 
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+          } p-6 bg-AirForceBlue text-black absolute top-20 right-0 mx-4 mt-6 min-w-[90%] rounded-xl sidebar`}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {navLinks.map((nav, index) => (

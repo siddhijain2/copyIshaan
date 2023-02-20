@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button';
+import Button from '../Button';
 
 const Card = ({ icon,title,content }) => {
   return (
@@ -8,7 +8,7 @@ const Card = ({ icon,title,content }) => {
         <div className="max-w-xs rounded-2xl overflow-hidden shadow-lg">
           <img className="w-full" src={icon} alt={title} />
 
-          <div className="px-6 py-4 lg:h-46 ">
+          <div className="px-6 py-4 lg:h-46 bg-primary">
             {/* <span className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
               {game}
             </span> */}
