@@ -1,7 +1,7 @@
 import './App.css';
 import styles from "./style";
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
-import Home from './pages/Home';
+import {Home,Enuncify,Kalamkaari,Speakwise} from './pages';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -17,6 +17,9 @@ function App() {
     </div>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/Kalamkari" element={<Kalamkaari/>}/>
+        <Route exact path="/Enunsify" element={<Enuncify/>}/>
+        <Route exact path="/Speakwise" element={<Speakwise/>}/>
       </Routes>
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
