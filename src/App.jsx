@@ -1,6 +1,6 @@
 import './App.css';
 import styles from "./style";
-import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -15,9 +15,9 @@ function App() {
         <Navbar />
       </div>
     </div>
-      <Switch>
-          <Route exact path ="/"><Home/></Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+      </Routes>
       <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Footer />
