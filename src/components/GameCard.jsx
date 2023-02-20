@@ -4,11 +4,11 @@ import Button from './Button';
 const Card = ({ icon,title,content }) => {
   return (
     <>
-      <div className="lg:p-4 md:m-full flex justify-center mt-40">
+      <div className="lg:p-4 md:m-full flex justify-centermargin m-5">
         <div className="max-w-xs rounded-2xl overflow-hidden shadow-lg">
           <img className="w-full" src={icon} alt={title} />
 
-          <div className="px-6 py-4 lg:h-44">
+          <div className="px-6 py-4 lg:h-46 ">
             {/* <span className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
               {game}
             </span> */}
@@ -22,9 +22,11 @@ const Card = ({ icon,title,content }) => {
             <p className='text-gray-700 text-base'>
                 {content}
             </p>
-            <Button className="px-6 pt- pb-2 justify-center" styles={`mt-2`} text={`Play`}/>
+            <div class="container px-6 py-1 min-w-full flex flex-col items-center">
+            <Button className="flex flex-col items-center" styles={`mt-1`} text={`Play`}/>
+            </div>
           </div>
-          
+
         </div>
       </div>
     </>
