@@ -1,10 +1,11 @@
 import styles from "../style";
 // import { logo } from "../assets";
 import { footerLinks } from "../constants";
+import { ScrollToTop } from "./ScrollToTop";
 
 const Footer = () => (
-  <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
-    <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
+  <section className={`${styles.flexCenter} ${styles.paddingY} flex-col w-[100%] bg-white`}>
+    <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full ${styles.paddingX}`}>
       <div className="flex-[1] flex flex-col justify-start mr-10">
         {/* <img
           src={logo}
@@ -43,7 +44,7 @@ const Footer = () => (
       <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white">
         Copyright Ⓒ 2022 HooBank. All Rights Reserved.
       </p>
-
+      <ScrollToTop/>
       {/* <div className="flex flex-row md:mt-0 mt-6">
         {socialMedia.map((social, index) => (
           <img

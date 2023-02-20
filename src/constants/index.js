@@ -1,4 +1,4 @@
-import { kalamkaari, Enuncify  } from "../assets";
+import { kalamkaari, Enuncify, Speakwise  } from "../assets";
 
 export const navLinks = [
   {
@@ -36,7 +36,7 @@ export const games = [
   },
   {
     id: "game-3",
-    icon: kalamkaari,
+    icon: Speakwise,
      title: "Speakwise",
     content:
       "Learn public speaking by improving oration skills like fluency, confidence and voice modulation.",
