@@ -8,8 +8,8 @@ const Hero = () => {
 
         <div className="flex flex-row justify-between items-center w-full">
           <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-BlackOlive ss:leading-[100.8px] leading-[75px]">
-            Reshaping Assessibilty of<br className="sm:block hidden" />{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"> Education</span>{" "}
+            Reshaping Assessibilty in<br className="sm:block hidden" />{" "}
+            <span className="bg-gradient-to-r from-AirForceBlue via-green-500 to-AirForceBlue inline-block text-transparent bg-clip-text"> Education</span>{" "}
           </h1>
         </div>
 

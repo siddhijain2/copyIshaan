@@ -8,8 +8,11 @@ module.exports = {
         primary: "#EDE6E3",
         secondary: "#00f6ff",
         Tomato: "#F06449",
-        dimBlue: "rgba(9, 151, 124, 0.1)",
+        Isabelline:"#EDE6E3",
+        AirForceBlue:"#508CA4",
         BlackOlive:"#36382E",
+        SeaGreen:"#0A8754",
+        DelftBlue:"#1D3461",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
