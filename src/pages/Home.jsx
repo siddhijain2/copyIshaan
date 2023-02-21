@@ -1,8 +1,8 @@
 import '../App.css';
 import styles from "../style";
-import { games } from '../constants';
+import { games, members } from '../constants';
 import {Hero,Card,About,FeatureCard} from '../components/Home';
-import TeamCard from "../components/Hero/Team";
+import TeamCard from "../components/Home/Team";
 
 function Home() {
   return (
