@@ -8,7 +8,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="fixed top-0 z-50 bg-primary w-full flex p-4 justify-between items-center navbar">
+    <nav className="fixed top-0 z-50 bg-primary w-full flex pb-2 p-4 justify-between shadow-sm items-center navbar">
       <img src={Logo} alt="logo" className=" h-[80px]" />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
