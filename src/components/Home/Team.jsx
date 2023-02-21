@@ -3,7 +3,7 @@ import React from 'react'
 const TeamCard = ({ icon, title }) => {
   return (
     
-          <div class="text-center text-gray-500 dark:text-gray-400 p-20">
+          <div class="font-poppins text-center text-gray-500 dark:text-gray-400 p-20">
               <img class="mx-auto mb-4 w-36 h-36 rounded-full" src={icon} alt={title}></img>
               <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                   <a href="#">{title}</a>

@@ -5,9 +5,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#EDE6E3",
+        primary: "#fef9f8",
         secondary: "#00f6ff",
-        Tomato: "#F06449",
+        Tomato: "#ef9273",
         Isabelline:"#EDE6E3",
         AirForceBlue:"#508CA4",
         BlackOlive:"#36382E",

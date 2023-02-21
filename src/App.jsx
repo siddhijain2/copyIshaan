@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
   
-      <div className="bg-primary w-full overflow-hidden">
+      <div className="bg-primary w-full overflow-hidden font-poppins">
       <div className={` ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Navbar />
@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/Enunsify" element={<Enuncify/>}/>
         <Route exact path="/Speakwise" element={<Speakwise/>}/>
       </Routes>
-      <div className={`bg-primary w-[100%] ${styles.flexCenter}`}>
+      <div className={`bg-Tomato w-[100%] ${styles.flexCenter}`}>
         <div className={`${styles.boxWidth}`}>
           <Footer />
         </div>

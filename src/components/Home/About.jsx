@@ -10,7 +10,7 @@ const About = () => {
               Brand new
             </p>
           </div>
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg mb-6 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -34,7 +34,7 @@ const About = () => {
                   height="24"
                 />
               </svg>
-              <span className="relative">The</span>
+              <span className="relative ">The</span>
             </span>{' '}
             quick, brown fox jumps over a lazy dog
           </h2>

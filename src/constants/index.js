@@ -50,22 +50,16 @@ export const members = [
     id: "member-1",
     icon: kalamkaari,
     title: "Divya Sinha",
-    content:
-      "Learn to recognize words and letters by reading and writing it.Get instant feedback on accuracy and speed.",
   },
   {
     id: "member-2",
     icon: Enuncify,
     title: "Muskan Agrawal",
-    content:
-      "Learn to understand the context of the sentences by speaking with correct sentiment and pronunciation.",
   },
   {
     id: "member-3",
     icon: Speakwise,
      title: "Siddhi Jain",
-    content:
-      "Learn public speaking by improving oration skills like fluency, confidence and voice modulation.",
   },
 ];
 
@@ -76,7 +70,6 @@ export const features = [
     title: "Efficient Writing",
     content:
       "The feedback",
-    color: "bg-SeaGreen",
 
   },
   {
@@ -85,7 +78,6 @@ export const features = [
     title: "Ehanced Diction",
     content:
       "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
-    color: "bg-SeaGreen",
   },
   {
     id: "feature-3",
@@ -93,7 +85,6 @@ export const features = [
     title: "Founder & Leader",
     content:
       "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
-    color: "bg-SeaGreen",
   },
   {
     id: "feature-4",
@@ -101,7 +92,6 @@ export const features = [
     title: "Founder & Leader",
     content:
       "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
-    color: "bg-SeaGreen",
   },
 ];
 
