@@ -1,63 +1,47 @@
 import styles from "../style";
-// import { logo } from "../assets";
+import { slides, github } from "../assets";
 import { footerLinks } from "../constants";
 import { ScrollToTop } from "./ScrollToTop";
 
 const Footer = () => (
-  <section className={`${styles.flexCenter} ${styles.paddingY} flex-col w-[100%] bg-white`}>
-    <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full ${styles.paddingX}`}>
-      <div className="flex-[1] flex flex-col justify-start mr-10">
-        {/* <img
-          src={logo}
-          alt="hoobank"
-          className="w-[266px] h-[72.14px] object-contain"
-        /> */}
-        <p className={`${styles.paragraph} mt-4 max-w-[312px]`}>
-          A new way to make the payments easy, reliable and secure.
-        </p>
-      </div>
-
-      <div className="flex-[1.5] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10">
-        {footerLinks.map((footerlink) => (
-          <div key={footerlink.title} className={`flex flex-col ss:my-0 my-4 min-w-[150px]`}>
-            <h4 className="font-poppins font-medium text-[18px] leading-[27px] text-white">
-              {footerlink.title}
-            </h4>
-            <ul className="list-none mt-4">
-              {footerlink.links.map((link, index) => (
-                <li
-                  key={link.name}
-                  className={`font-poppins font-normal text-[16px] leading-[24px] text-dimWhite hover:text-secondary cursor-pointer ${
-                    index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
-                  }`}
-                >
-                  {link.name}
-                </li>
-              ))}
-            </ul>
+  <section>
+    <div class=" bg-gradient-to-b from-Tomato to-ChiliRed">
+      <div class="max-w-2xl mx-auto text-white py-10">
+        <div class="text-center">
+          <div class="flex justify-center my-10">
+            <div class="flex items-center border w-auto rounded-lg px-4 py-2 w-52 mx-2">
+              <a href="https://github.com/divya-ilona/Ishaan-App">
+                <img src={github} class="w-7 md:w-8"></img>
+                <div class="text-left ml-3">
+                  <p class="text-xs text-gray-200">Find the code </p>
+                  <p class="text-sm md:text-base"> on Github</p>
+                </div>
+              </a>
+            </div>
+            <div class="flex items-center border w-auto rounded-lg px-4 py-2 w-44 mx-2">
+              <a href="https://www.canva.com/design/DAFaRCQEeK8/smJLl00CdmTnPXGU6xpJAw/view?utm_content=DAFaRCQEeK8&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu">
+                <img src={slides} class="w-7 md:w-8"></img>
+                <div class="text-left ml-3">
+                  <p class="text-xs text-gray-200">Find the </p>
+                  <p class="text-sm md:text-base"> Pitch Deck </p>
+                </div>
+              </a>
+            </div>
           </div>
-        ))}
+        </div>
+        <div class="mt-28 flex flex-col md:flex-row md:justify-between items-center text-sm text-gray-400">
+          <p class="order-2 md:order-1 mt-8 md:mt-0">
+            {" "}
+            &copy; Beautiful Footer, 2021.{" "}
+          </p>
+          <div class="order-1 md:order-2">
+            <span class="px-2">About us</span>
+            <span class="px-2 border-l">Contact us</span>
+            <span class="px-2 border-l">Privacy Policy</span>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[1px] border-t-[#3F3E45]">
-      <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white">
-        Copyright Ⓒ 2022 HooBank. All Rights Reserved.
-      </p>
-      <ScrollToTop/>
-      {/* <div className="flex flex-row md:mt-0 mt-6">
-        {socialMedia.map((social, index) => (
-          <img
-            key={social.id}
-            src={social.icon}
-            alt={social.id}
-            className={`w-[21px] h-[21px] object-contain cursor-pointer ${
-              index !== socialMedia.length - 1 ? "mr-6" : "mr-0"
-            }`}
-            onClick={() => window.open(social.link)}
-          />
-        ))}
-      </div> */}
+      <ScrollToTop />
     </div>
   </section>
 );
