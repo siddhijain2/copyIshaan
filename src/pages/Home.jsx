@@ -30,8 +30,7 @@ function Home() {
                 Our team
               </h2>
               <p class="font-light text-gray-500 sm:text-xl">
-                Explore the whole collection of open-source web components and
-                elements built with the utility classes from Tailwind
+                We are final year students studying in IIT BHU Varanasi with an inclination towards development.
               </p>
             </div>
             <div class="flex flex-wrap items-stretch -mx-4 justify-center">
