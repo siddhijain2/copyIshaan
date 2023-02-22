@@ -61,6 +61,7 @@ export const members = [
     title: "Divya Sinha",
     post: "Electrical Engineering",
     github: "https://github.com/divya-ilona",
+    linkedin: "https://www.linkedin.com/in/divya-sinha01/",
   },
   {
     id: "member-2",
@@ -68,6 +69,7 @@ export const members = [
     title: "Muskan Agrawal",
     post: "Electrical Engineering",
     github: "https://github.com/muskan0202",
+    linkedin: "https://www.linkedin.com/in/muskan-agrawal02/",
   },
   {
     id: "member-3",
@@ -75,6 +77,7 @@ export const members = [
     title: "Siddhi Jain",
     post: "Civil Engineering",
     github: "https://github.com/siddhijain2",
+    linkedin: "https://www.linkedin.com/in/siddhi-jain-1898b4171/",
   },
 ];
 
