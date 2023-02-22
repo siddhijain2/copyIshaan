@@ -1,10 +1,5 @@
-
 function Enuncify() {
-  return (
-    <>
-    </>
-  );
+  return <></>;
 }
 
 export default Enuncify;
-
