@@ -1,18 +1,20 @@
-import styles from "../../style";
-import { hero } from "../../assets";
+import styles from '../../style'
+import { hero } from '../../assets'
 
 const Hero = () => {
   return (
     <section className={`flex md:flex-row flex-col mt-20 sm:py-16 py-3 pr-5`}>
-      <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
+      <div
+        className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
+      >
         <div className="flex flex-row justify-between items-center w-full">
           <h1 className="flex-1 font-poppins font-semibold xl:text-[92px] ss:text-[72px] text-[42px] text-BlackOlive ss:leading-[100.8px] leading-[75px]">
             Reshaping Accessibilty in
-            <br className="sm:block hidden" />{" "}
+            <br className="sm:block hidden" />{' '}
             <span className="bg-gradient-to-r from-AirForceBlue via-green-500 to-AirForceBlue inline-block text-transparent bg-clip-text">
-              {" "}
+              {' '}
               Education
-            </span>{" "}
+            </span>{' '}
           </h1>
         </div>
 
@@ -20,7 +22,8 @@ const Hero = () => {
           through AI.
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-            We aim to bring accessibility in education by providing tools to help assist child to write, read and understand text at their own pace.
+          We aim to bring accessibility in education by providing tools to help
+          assist child to write, read and understand text at their own pace.
         </p>
       </div>
 
@@ -40,7 +43,7 @@ const Hero = () => {
         {/* gradient end */}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
