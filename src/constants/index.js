@@ -1,4 +1,4 @@
-import { kalamkaari, Enuncify, Speakwise,feature01  } from "../assets";
+import { kalamkaari, Enuncify, Speakwise,feature01, Divya, Muskan, Siddhi } from "../assets";
 
 export const navLinks = [
   {
@@ -48,17 +48,17 @@ export const games = [
 export const members = [
   {
     id: "member-1",
-    icon: kalamkaari,
+    icon: Divya,
     title: "Divya Sinha",
   },
   {
     id: "member-2",
-    icon: Enuncify,
+    icon: Muskan,
     title: "Muskan Agrawal",
   },
   {
     id: "member-3",
-    icon: Speakwise,
+    icon: Siddhi,
      title: "Siddhi Jain",
   },
 ];

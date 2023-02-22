@@ -29,7 +29,7 @@ const Footer = () => (
         <div class="flex flex-col items-center text-sm text-white">
           <p class="order-2 md:order-1 md:mt-0">
             {" "}
-            &copy; Beautiful Footer, 2021.{" "}
+            &copy; 2023 Ishaan App. All rights reserved.{" "}
           </p>
         </div>
       </div>
