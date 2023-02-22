@@ -1,4 +1,15 @@
-import { kalamkaari, Enuncify, Speakwise,feature01,feature04, feature02, feature03, Divya, Muskan, Siddhi } from "../assets";
+import {
+  kalamkaari,
+  Enuncify,
+  Speakwise,
+  feature01,
+  feature04,
+  feature02,
+  feature03,
+  Divya,
+  Muskan,
+  Siddhi,
+} from "../assets";
 
 export const navLinks = [
   {
@@ -37,13 +48,11 @@ export const games = [
   {
     id: "game-3",
     icon: Speakwise,
-     title: "Speakwise",
+    title: "Speakwise",
     content:
       "Learn public speaking by improving oration skills like fluency, confidence and voice modulation.",
   },
 ];
-
-
 
 export const members = [
   {
@@ -51,18 +60,21 @@ export const members = [
     icon: Divya,
     title: "Divya Sinha",
     post: "Electrical Engineering",
+    github: "https://github.com/divya-ilona",
   },
   {
     id: "member-2",
     icon: Muskan,
     title: "Muskan Agrawal",
     post: "Electrical Engineering",
+    github: "https://github.com/muskan0202",
   },
   {
     id: "member-3",
     icon: Siddhi,
-     title: "Siddhi Jain",
-     post: "Civil Engineering",
+    title: "Siddhi Jain",
+    post: "Civil Engineering",
+    github: "https://github.com/siddhijain2",
   },
 ];
 
@@ -73,7 +85,6 @@ export const features = [
     title: "Deep Insights",
     content:
       "Get analysis about writing speed, efficiency and speech fluency and pronunciation to track progress.",
-
   },
   {
     id: "feature-2",
