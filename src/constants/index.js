@@ -1,4 +1,4 @@
-import { kalamkaari, Enuncify, Speakwise,feature01, Divya, Muskan, Siddhi } from "../assets";
+import { kalamkaari, Enuncify, Speakwise,feature01,feature04, feature02, feature03, Divya, Muskan, Siddhi } from "../assets";
 
 export const navLinks = [
   {
@@ -6,16 +6,16 @@ export const navLinks = [
     title: "Home",
   },
   {
+    id: "games",
+    title: "Games",
+  },
+  {
     id: "features",
-    title: "Features",
+    title: "About us",
   },
   {
-    id: "product",
-    title: "Product",
-  },
-  {
-    id: "clients",
-    title: "Clients",
+    id: "team",
+    title: "Team",
   },
 ];
 
@@ -50,16 +50,19 @@ export const members = [
     id: "member-1",
     icon: Divya,
     title: "Divya Sinha",
+    post: "Electrical Engineering",
   },
   {
     id: "member-2",
     icon: Muskan,
     title: "Muskan Agrawal",
+    post: "Electrical Engineering",
   },
   {
     id: "member-3",
     icon: Siddhi,
      title: "Siddhi Jain",
+     post: "Civil Engineering",
   },
 ];
 
@@ -67,31 +70,31 @@ export const features = [
   {
     id: "feature-1",
     icon: feature01,
-    title: "Efficient Writing",
+    title: "Deep Insights",
     content:
-      "The feedback",
+      "Get analysis about writing speed, efficiency and speech fluency and pronunciation to track progress.",
 
   },
   {
     id: "feature-2",
-    icon: feature01,
-    title: "Ehanced Diction",
+    icon: feature02,
+    title: "Efficient Writing",
     content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
+      "Better your grasp over different fonts by rewriting and understanding given text.",
   },
   {
     id: "feature-3",
-    icon: feature01,
-    title: "Founder & Leader",
+    icon: feature03,
+    title: "Enhanced Diction",
     content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
+      "By listening and repeating sentences, learn better pronunciation and gain confidence.",
   },
   {
     id: "feature-4",
-    icon: feature01,
-    title: "Founder & Leader",
+    icon: feature04,
+    title: "Fun Learning",
     content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
+      "Increase vocabulary, gain information on various topics and learn new facts while improving your skills.",
   },
 ];
 

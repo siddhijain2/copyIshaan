@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TeamCard = ({ icon, title }) => {
+const TeamCard = ({ icon, title,post }) => {
   return (
     
           <div class="font-poppins text-center text-gray-500 dark:text-gray-400 p-20">
@@ -8,7 +8,7 @@ const TeamCard = ({ icon, title }) => {
               <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 ">
                   <a href="#">{title}</a>
               </h3>
-              <p>CEO/Co-founder</p>
+              <p>{post}</p>
               <ul class="flex justify-center mt-4 space-x-4">
                   <li>
                       <a href="#" class="text-[#39569c] hover:text-gray-900 ">
