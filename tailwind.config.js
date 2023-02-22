@@ -13,7 +13,8 @@ module.exports = {
         BlackOlive:"#36382E",
         SeaGreen:"#0A8754",
         DelftBlue:"#1D3461",
-        ChiliRed: "#EF846B"
+        ChiliRed: "#EF846B",
+        DarkRed: "#ff6347",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
