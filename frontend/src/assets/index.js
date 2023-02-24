@@ -14,5 +14,24 @@ import github from './github.png'
 import Divya from './Divya.jpeg'
 import Muskan from './Muskan.jpeg'
 import Siddhi from './Siddhi.jpg'
+import login from './login.png'
 
-export { kalamkaari,hero,Enuncify,Logo,menu,close,Speakwise,slides, github, feature01, feature04, feature02, feature03,Divya, Muskan,Siddhi  }
+export {
+  kalamkaari,
+  hero,
+  Enuncify,
+  Logo,
+  menu,
+  close,
+  Speakwise,
+  slides,
+  github,
+  feature01,
+  feature04,
+  feature02,
+  feature03,
+  Divya,
+  Muskan,
+  Siddhi,
+  login,
+}
