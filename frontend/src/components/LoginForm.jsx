@@ -1,7 +1,7 @@
 
 
 const LoginForm = () => (
-  <div class="flex items-center justify-center  absolute z-50 mt-36">
+  <div class="flex items-center justify-center  absolute z-50 mt-40">
   {/* <!-- Login Container --> */}
   <div class="w-4/5 py-20  ">
     <div class=" flex flex-col text-sm rounded-md">

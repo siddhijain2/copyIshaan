@@ -28,6 +28,10 @@ export const navLinks = [
     id: "team",
     title: "Team",
   },
+    {
+    id: "login",
+    title: "Login",
+  },
 ];
 
 export const games = [
