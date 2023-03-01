@@ -15,6 +15,8 @@ from kalamkaari.utils.center_image import center_image
 from kalamkaari.utils.pad_image import pad_image
 from kalamkaari.utils.cut_pictures import cut_pictures
 
+from kalamkaari.serializers import WordStoreBeginnerSerializer,WordStoreAdvanceSerializer
+  
 # The "model jury" 
 model_1 = keras.models.load_model("kalamkaari/utils/models/model_1.h5")
 model_2 = keras.models.load_model("kalamkaari/utils/models/model_2.h5")
@@ -119,7 +121,7 @@ def data_return(request):
 
     # The "answer key"
     # If a lowercase letter is not found in the string, that means the only difference in casing is the size
-    class_mapping = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabdefghnqrt'
+    class_mapping = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabdefghnqrt'
 
     # Identifying the what case uniformed-cased letters should be
     # Example: when a c should be a C
@@ -191,3 +193,25 @@ def data_return(request):
     print('Final Prediction: ', final_prediction)
 
     return HttpResponse(final_prediction)
+
+
+
+
+#get api
+
+@api_view(['GET'])
+def GetWordBeginner(request):
+
+    # return beginner word which is one greater than count stored in user entry
+    def get(self, request, format=None):
+        serializer = WordStoreBeginnerSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def GetWordAdvance(request):
+
+    # return beginner word which is one greater than count stored in user entry
+    def get(self, request, format=None):
+        serializer = WordStoreAdvanceSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)

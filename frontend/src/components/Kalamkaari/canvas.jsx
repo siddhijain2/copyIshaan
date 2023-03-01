@@ -61,7 +61,7 @@ class Canvas extends Component {
     fd.append('image', file)
 
     var response = await axios.post('kalamkaari/', fd, {
-      headers: {
+      headers: { 
         'content-type': 'multipart/form-data',
       },
     })

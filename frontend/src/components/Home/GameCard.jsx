@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Button'
 
-const Card = ({ icon, title, content }) => {
+const Card = ({ icon, title, content, link }) => {
   return (
     <>
       <div className="lg:p-4 md:m-full flex justify-centermargin m-5">
@@ -21,6 +21,7 @@ const Card = ({ icon, title, content }) => {
                 className="flex flex-col items-center"
                 styles={`mt-1`}
                 text={`Play`}
+                link={link}
               />
             </div>
           </div>
