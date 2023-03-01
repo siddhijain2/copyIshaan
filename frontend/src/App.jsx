@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import MainRoutes from './routes'
-import { LogIn, SignIn } from './pages'
+import { LogIn, SignIn, Enuncify } from './pages'
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={<MainRoutes />} />
+        <Route path="/enuncify" element={<Enuncify/>}/>
       </Routes>
       </div>
     </Router>
