@@ -5,4 +5,8 @@ from . import views
 
 urlpatterns = [
     path('', views.data_return),
+    path('dict/beginner/', views.GetWordBeginner),
+    path('dict/advance/<int:id>', views.GetWordAdvance),
+    path('trace/advance/<int:id>', views.GetWordAdvance),
+    path('trace/beginner/<int:id>', views.GetWordBeginner),
 ]
