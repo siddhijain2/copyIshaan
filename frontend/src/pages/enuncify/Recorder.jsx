@@ -39,9 +39,10 @@ function Recorder() {
   const sendAudioData = async (blob) => {
     const formData = new FormData();
     formData.append("audio_file", blob, "audio.wav");
-    const response = await axios.get("/api/emotion_recognition/", {
-      method: "POST",
-      body: formData,
+    const response = await axios.get("enuncify/", formData, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
     });
     const result = await response.json();
     console.log("Emotion recognition result:", result);
