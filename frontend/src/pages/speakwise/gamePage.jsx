@@ -9,7 +9,7 @@ function Speakwise() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: "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",
     });
 
     const openai = new OpenAIApi(configuration);
@@ -64,4 +64,4 @@ function Speakwise() {
 
 export default Speakwise;
 
-// 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
+// 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

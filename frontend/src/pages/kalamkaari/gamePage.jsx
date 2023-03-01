@@ -1,9 +1,9 @@
-import Canvas from '../../components/Kalamkaari/canvas'
+import Canvas from "../../components/Kalamkaari/canvas";
 
 function Kalamkaari() {
   return (
     <>
-      <Canvas/>
+      <Canvas />
     </>
   );
 }

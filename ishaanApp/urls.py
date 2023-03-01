@@ -19,7 +19,9 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
+    path('speakwise/', include('speakwise.urls')),
     path('kalamkaari/', include('kalamkaari.urls')),
     path('admin/', admin.site.urls),
     re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
+
 ]
