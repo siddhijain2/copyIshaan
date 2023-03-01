@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
 
 max_ = max # cv2 * overrides python max function
 from PIL import Image
@@ -16,6 +17,8 @@ from kalamkaari.utils.pad_image import pad_image
 from kalamkaari.utils.cut_pictures import cut_pictures
 
 from kalamkaari.serializers import WordStoreBeginnerSerializer,WordStoreAdvanceSerializer
+from .models import WordStoreBeginner,WordStoreAdvance
+from django.db.models import F
   
 # The "model jury" 
 model_1 = keras.models.load_model("kalamkaari/utils/models/model_1.h5")
@@ -201,11 +204,12 @@ def data_return(request):
 
 @api_view(['GET'])
 def GetWordBeginner(request):
-
+    print('Hi')
     # return beginner word which is one greater than count stored in user entry
-    def get(self, request, format=None):
-        serializer = WordStoreBeginnerSerializer(request.user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    word=WordStoreBeginner.objects.get(id=1)
+    serializer = WordStoreBeginnerSerializer(word)
+    print(serializer.data)
+    return HttpResponse(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -214,4 +218,4 @@ def GetWordAdvance(request):
     # return beginner word which is one greater than count stored in user entry
     def get(self, request, format=None):
         serializer = WordStoreAdvanceSerializer(request.user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.data, status=status.HTTP_200_OK)
