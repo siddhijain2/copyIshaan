@@ -116,7 +116,7 @@ def data_return(request):
     image_request = request.data['image'].file
     im = Image.open(image_request)
     # im.show()
-    filepath = 'static/handwritingrecognition/user_image.png'
+    filepath = 'static/kalamkaari/user_image.png'
     im.save(filepath)
 
     # The "answer key"
