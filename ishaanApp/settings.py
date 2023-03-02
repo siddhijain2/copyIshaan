@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'account',
     'speakwise',
-    'kalamkaari'
+    'kalamkaari',
 ]
 
 MIDDLEWARE = [
@@ -164,5 +164,5 @@ SIMPLE_JWT = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3000"
 ]
