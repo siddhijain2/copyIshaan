@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
+from rest_framework.decorators import api_view
 
 max_ = max # cv2 * overrides python max function
 from PIL import Image
@@ -10,7 +11,7 @@ import cv2
 from cv2 import *
 import numpy as np
 import tensorflow.keras as keras
-from rest_framework.decorators import api_view
+
 
 from kalamkaari.utils.center_image import center_image
 from kalamkaari.utils.pad_image import pad_image
@@ -124,7 +125,7 @@ def data_return(request):
 
     # The "answer key"
     # If a lowercase letter is not found in the string, that means the only difference in casing is the size
-    class_mapping = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabdefghnqrt'
+    class_mapping = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabdefghnqrt'
 
     # Identifying the what case uniformed-cased letters should be
     # Example: when a c should be a C

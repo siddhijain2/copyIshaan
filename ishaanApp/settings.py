@@ -43,11 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'account',
-<<<<<<< HEAD
     'speakwise',
-=======
-    'kalamkaari',
->>>>>>> 420d3d78480b746cfc288565b60fe270027284d6
+    'kalamkaari'
 ]
 
 MIDDLEWARE = [
