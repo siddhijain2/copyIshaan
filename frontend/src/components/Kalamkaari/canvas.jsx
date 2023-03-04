@@ -60,19 +60,11 @@ class Canvas extends Component {
     const fd = new FormData();
     fd.append("image", file);
 
-<<<<<<< HEAD
-    var response = await axios.post("kalamkaari/", fd, {
-      headers: {
-        "content-type": "multipart/form-data",
-      }, 
-    });
-=======
     var response = await axios.post('kalamkaari/', fd, {
       headers: { 
         'content-type': 'multipart/form-data',
       },
     })
->>>>>>> 420d3d78480b746cfc288565b60fe270027284d6
 
     this.setState({
       prediction: response.data,
