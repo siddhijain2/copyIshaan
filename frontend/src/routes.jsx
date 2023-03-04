@@ -29,9 +29,9 @@ function MainRoutes() {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route exact path="/enunsify" element={<Enuncify />} />
-        <Route exact path="/enunsify/result" element={<EnuncifyResult />} />
-        <Route exact path="/enunsify/theme" element={<EnuncifyTheme />} />
+        <Route exact path="/enuncify" element={<Enuncify />} />
+        <Route exact path="/enuncify/result" element={<EnuncifyResult />} />
+        <Route exact path="/enuncify/theme" element={<EnuncifyTheme />} />
         <Route exact path="/kalamkaari" element={<Kalamkaari />} />
         <Route exact path="/kalamkaari/result" element={<KalamkaariResult />} />
         <Route exact path="/kalamkaari/level" element={<KalamkaariLevel />} />

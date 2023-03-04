@@ -4,7 +4,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import axios from "axios";
-
+var result = "";
 function Recorder() {
   const [isRecording, setIsRecording] = useState(false);
   const [blobObject, setBlobObject] = useState(null);
@@ -33,19 +33,19 @@ function Recorder() {
     console.log("recordedBlob is: ", recordedBlob);
     setBlobObject(recordedBlob);
     sendAudioData(recordedBlob.blob);
-    
   };
 
   const sendAudioData = async (blob) => {
     const formData = new FormData();
-    formData.append("audio_file", blob, "audio.wav");
-    const response = await axios.get("enuncify/", formData, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
-    const result = await response.json();
-    console.log("Emotion recognition result:", result);
+    formData.append('audio_file', blob, "audio.wav");
+    const response = await axios
+      .post("Enuncify/", formData, {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      })
+    console.log("Emotion recognition result:", response.data);
+    result = response.data;
   };
 
   return (
@@ -67,6 +67,7 @@ function Recorder() {
       )}
       <h2>Transcript</h2>
       <p>{transcript}</p>
+      <p>{result}</p>
     </div>
   );
 }

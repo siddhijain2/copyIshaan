@@ -44,11 +44,6 @@ class User(AbstractBaseUser):
   is_admin = models.BooleanField(default=False)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
-  beginner_count=models.IntegerField(default=0)
-  advance_count=models.IntegerField(default=0)
-  beginner_best_time=models.IntegerField(default=1000)
-  advance_best_time=models.IntegerField(default=1000)
-  current_streak=models.IntegerField(default=0)
 
   objects = UserManager()
 
