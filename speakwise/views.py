@@ -15,6 +15,8 @@ from matplotlib.pyplot import specgram
 import soundfile as sf
 import tensorflow as tf
 import plotly.graph_objects as go
+from mutagen.mp3 import MP3
+
 
 #model that i have creted..
 new_model = tf.keras.models.load_model("speakwise/utils/my_model.h5")
@@ -23,7 +25,6 @@ new_model = tf.keras.models.load_model("speakwise/utils/my_model.h5")
 def data_return(request):
     def feature_extraction2(file_name):
         X , sample_rate = librosa.load(file_name) #Can also load file using librosa
-        print(X,sample_rate)
         if X.ndim > 1: # ndim id number of array dimensions
             X = X[:,0]
         X = X.T
@@ -49,7 +50,7 @@ def data_return(request):
     def prediction(fname):
         file_name=fname
         mfccs, rmse, spectral_flux, zcr = feature_extraction2(file_name)
-        print(mfccs,rmse,spectral_flux,zcr)
+        # print(mfccs,rmse,spectral_flux,zcr)
 
         extracted_features = np.hstack([mfccs, rmse, spectral_flux, zcr])
 
@@ -58,7 +59,9 @@ def data_return(request):
         c=new_model.predict(pp2)
 
         values = c
+        # print(values)
         index_max = np.argmax(values)
+        # print(MP3(fname).info.length)
         return(index_max)
 
     def visualize(l2,dd):
@@ -89,20 +92,22 @@ def data_return(request):
 
     audio_file = request.FILES.get('audio_file')
     file_name = audio_file.name
-    # im.show()
-    filepath = 'static/speakwise'+ file_name
+    filepath = 'static/speakwise/'+ file_name
     with open(filepath, 'wb+') as destination:
         for chunk in audio_file.chunks():
             destination.write(chunk)
 
-    n=prediction(filepath)
-    # print(librosa.__version__)
-    # if n==0:
-    #     visualize([{'range': [0, 1], 'color': 'red'}],{'text': "English Fluency on Beginner level", 'font': {'size': 30}})
-    # elif n==1:
-    #     visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'}],{'text': "English Fluency on Intermediate level", 'font': {'size': 30}})
-    # else:
-    #     visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'},{'range': [2, 3], 'color': 'green'}],{'text': "English Fluency on Advanced level", 'font': {'size': 30}})
+    # audio = MP3("static/speakwise/output.mp3")
+    
+
+    n=prediction("static/speakwise/output.mp3")
+    # n=prediction(filepath)
+    if n==0:
+        visualize([{'range': [0, 1], 'color': 'red'}],{'text': "English Fluency on Beginner level", 'font': {'size': 30}})
+    elif n==1:
+        visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'}],{'text': "English Fluency on Intermediate level", 'font': {'size': 30}})
+    else:
+        visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'},{'range': [2, 3], 'color': 'green'}],{'text': "English Fluency on Advanced level", 'font': {'size': 30}})
 
     # return  FileResponse('static/speakwise/flu.png', content_type='image/jpeg')
     return  HttpResponse(n)

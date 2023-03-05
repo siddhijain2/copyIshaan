@@ -9,13 +9,13 @@ function Speakwise() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: "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",
     });
 
     const openai = new OpenAIApi(configuration);
     const res = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: "Write a note on " + prompt,
+      prompt: "Write a note about " + prompt,
       temperature: 0.7,
       max_tokens: 256,
       top_p: 1,
@@ -64,4 +64,4 @@ function Speakwise() {
 
 export default Speakwise;
 
-// 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
+// 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
