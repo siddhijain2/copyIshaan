@@ -1,32 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import {useTimer} from '../../hooks';
-import { formatTime } from '../../utils';
+import { useTimer } from '../../services'
+import { formatTime } from '../../utils'
 
 // const element = <FontAwesomeIcon icon={faClock} />
 
-const Timer = () => {
-  const { timer, isActive, isPaused, handleStart, handlePause, handleResume, handleReset } = useTimer(0)
-
+const Timer = ({ time }) => {
   return (
     <div className="app">
       <h3>React Stopwatch </h3>
-      <div className='stopwatch-card'>
-        <p>{formatTime(timer)}</p>
-        <div className='buttons'>
-          {
-            !isActive && !isPaused ?
-              <button onClick={handleStart}>Start</button>
-              : (
-                isPaused ? <button onClick={handlePause}>Pause</button> :
-                  <button onClick={handleResume}>Resume</button>
-              )
-          }
-          <button onClick={handleReset} disabled={!isActive}>Reset</button>
-        </div>
+      <div className="stopwatch-card">
+        <p>{formatTime(time)}</p>
       </div>
     </div>
-  );
+  )
 }
 
-export default Timer;
+export default Timer

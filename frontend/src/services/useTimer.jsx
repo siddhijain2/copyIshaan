@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef } from 'react'
 
 const useTimer = (initialState = 0) => {
   const [timer, setTimer] = useState(initialState)
@@ -33,7 +33,15 @@ const useTimer = (initialState = 0) => {
     setTimer(0)
   }
 
-  return { timer, isActive, isPaused, handleStart, handlePause, handleResume, handleReset }
+  return {
+    timer,
+    isActive,
+    isPaused,
+    handleStart,
+    handlePause,
+    handleResume,
+    handleReset,
+  }
 }
 
 export default useTimer

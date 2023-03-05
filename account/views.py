@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate
 from account.renderers import UserRenderer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
+from kalamkaari.models import kalamkaariProfile
 
 # Generate Token Manually
 def get_tokens_for_user(user):
@@ -23,6 +24,8 @@ class UserRegistrationView(APIView):
     serializer.is_valid(raise_exception=True)
     user = serializer.save()
     token = get_tokens_for_user(user)
+    b=kalamkaariProfile(user_id=user.id)
+    b.save()
     return Response({'token':token, 'msg':'Registration Successful'}, status=status.HTTP_201_CREATED)
 
 class UserLoginView(APIView):

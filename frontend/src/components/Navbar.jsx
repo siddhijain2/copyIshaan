@@ -1,15 +1,24 @@
 import { useState } from 'react'
 
+
 import { close, Logo, menu } from '../assets'
 import { navLinks } from '../constants'
+import { getToken } from '../services/LocalStorageService';
+// import { NavLink } from 'react-router-dom';
+
 
 const Navbar = () => {
   const [active, setActive] = useState('Home')
   const [toggle, setToggle] = useState(false)
 
+
+  const { access_token } = getToken()
+
+
   return (
     <nav className="fixed top-0 z-50 bg-primary w-full flex pb-2 p-4 justify-between shadow-sm items-center navbar">
       <img src={Logo} alt="logo" className=" h-[80px]" />
+
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
@@ -25,6 +34,7 @@ const Navbar = () => {
         ))}
       </ul>
 
+
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <img
           src={toggle ? close : menu}
@@ -32,6 +42,7 @@ const Navbar = () => {
           className=" h-[40px] object-contain"
           onClick={() => setToggle(!toggle)}
         />
+
 
         <div
           className={`${
@@ -54,7 +65,18 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    // {access_token ? <Button component={NavLink} to='/dashboard' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Dashboard</Button> : <Button component={NavLink} to='/login' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Login/Registration</Button>}
   )
 }
 
+
 export default Navbar
+
+
+//           <Button component={NavLink} to='/' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Home</Button>
+//           <Button component={NavLink} to='/contact' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Contact</Button>
+
+
+
+
+
