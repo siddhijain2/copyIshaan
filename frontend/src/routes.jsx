@@ -32,7 +32,10 @@ function MainRoutes() {
         <Route exact path="/enuncify" element={<Enuncify />} />
         <Route exact path="/enuncify/result" element={<EnuncifyResult />} />
         <Route exact path="/enuncify/theme" element={<EnuncifyTheme />} />
-        <Route exact path="/kalamkaari" element={<Kalamkaari />} />
+        <Route exact path="/kalamkaari/dictation/beginner" element={<Kalamkaari theme={'dictation'} level={'beginner'} />} />
+        <Route exact path="/kalamkaari/dictation/advance" element={<Kalamkaari theme={'dictation'} level={'advance'} />} />
+        <Route exact path="/kalamkaari/trace/beginner" element={<Kalamkaari theme={'trace'} level={'beginner'} />} />
+        <Route exact path="/kalamkaari/trace/advance" element={<Kalamkaari theme={'trace'} level={'advance'} />} />
         <Route exact path="/kalamkaari/result" element={<KalamkaariResult />} />
         <Route exact path="/kalamkaari/level" element={<KalamkaariLevel />} />
         <Route exact path="/speakwise" element={<Speakwise />} />
