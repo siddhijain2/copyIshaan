@@ -17,7 +17,7 @@ import Siddhi from "./Siddhi.jpg";
 import login from "./login.png";
 import undoIcon from "./undo_icon.svg";
 import trashIcon from "./trash_icon.svg";
-import titleimage from "./title-image.png";
+import timer from "./timer_hour.png";
 import plusCircle from "./plus_circle.svg";
 import minusCircle from "./minus_circle.svg";
 
@@ -43,4 +43,5 @@ export {
   trashIcon,
   undoIcon,
   minusCircle,
+  timer,
 };

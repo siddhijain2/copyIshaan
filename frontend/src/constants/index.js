@@ -39,6 +39,23 @@ export const navLinks = [
   },
 ]
 
+export const navLinksGames = [
+  {
+    id: 'home',
+    title: 'Home',
+    link: '#home',
+  },
+  {
+    id: 'games',
+    title: 'Games',
+    link: '#games',
+  },
+  {
+    id: 'profile',
+    title: 'Profile',
+    link: '/profile',
+  },
+]
 export const games = [
   {
     id: 'game-1',
