@@ -10,7 +10,7 @@ import audios from './A.mp3'
 function Kalamkaari({ theme, level }) {
   const [words, setWords] = useState('hi')
   const [isPlaying, setIsPlaying] = useState(false)
-  const { timer, handleStart,handlePause } = useTimer()
+  const { timer, handleStart, handlePause } = useTimer()
   const audio = new Audio(audios)
 
   const handleSubmit = async () => {
@@ -26,22 +26,36 @@ function Kalamkaari({ theme, level }) {
 
   return (
     <>
-      <Canvas time={timer} />
-      <Timer time={timer} />
-      {isPlaying === false ? (
-        <button
-          className="btn waves-effect waves-light blue darken-1 submit-prediction"
-          type="submit"
-          name="action"
-          onClick={handleSubmit}
-        >
-          click to start
-        </button>
-      ) : theme === 'dictation' ? (
-        <ReactAudioPlayer src={audios} autoPlay controls />
-      ) : (
-        <div>{words}</div>
-      )}
+      <div class="container mx-auto text-grey-darkest mt-40 mb-20">
+        <div class=" -mx-2 ">
+          <Timer time={timer} />
+          <div class="px-4 border-black">
+              <div class="w-full  md:mx-2 mb-4 md:mb-0 border-black">
+                <div class="bg-primary rounded-lg overflow-hidden shadow-sm border-black relative">
+                  <div class=" pt-4 h-auto md:h-40 lg:h-[80%] border-black ">
+                    {isPlaying === false ? (
+                      <div className=" text-center  ">
+                        <button
+                          className="btn waves-effect waves-light blue darken-1 submit-prediction "
+                          type="submit"
+                          name="action"
+                          onClick={handleSubmit}
+                        >
+                          click to start
+                        </button>
+                      </div>
+                    ) : theme === 'dictation' ? (
+                      <ReactAudioPlayer src={audios} autoPlay controls />
+                    ) : (
+                      <div>{words}</div>
+                    )}
+                    <Canvas time={timer} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

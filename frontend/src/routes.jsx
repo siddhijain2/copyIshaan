@@ -3,7 +3,6 @@ import React from 'react'
 import styles from './style'
 import { Route, Routes } from 'react-router-dom'
 import {
-  Home,
   Enuncify,
   EnuncifyResult,
   EnuncifyTheme,
@@ -28,7 +27,6 @@ function MainRoutes() {
         </div>
       </div>
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route exact path="/enuncify" element={<Enuncify />} />
         <Route exact path="/enuncify/result" element={<EnuncifyResult />} />
         <Route exact path="/enuncify/theme" element={<EnuncifyTheme />} />

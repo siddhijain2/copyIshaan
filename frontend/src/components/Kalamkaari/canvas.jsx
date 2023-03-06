@@ -14,7 +14,7 @@ class Canvas extends Component {
       drawing: [],
       submitted: false,
       prediction: '',
-      canvasLength: localStorage.getItem('width') || 300,
+      canvasLength: localStorage.getItem('width') || 1200,
       minLength: 300,
       maxLength: 2000,
       drawings: [],
@@ -342,8 +342,22 @@ class Canvas extends Component {
         : `: ${this.state.predBtnCountdown}`
 
     return (
-      <div className="canvas my-36">
+      <div className="canvas">
         <div className="toolbar">
+          <select
+            className="browser-default size-dropdown-menu"
+            onChange={this.handleSizeChange}
+            defaultValue={defaultSize}
+          >
+            <option value="">-- Choose A Canvas Width --</option>
+            {sizeList}
+          </select>
+        </div>
+
+        <div className="p5-canvas py-4 ">
+          <ReactP5Wrapper className="P5Wrapper" sketch={this.sketch} />
+        </div>
+        <div className="flex flex-wrap justify-center">
           <img
             className="trashIcon"
             src={trashIcon}
@@ -370,30 +384,20 @@ class Canvas extends Component {
             alt=""
             onClick={this.handleOnClickSubtractSize}
           ></img>
-          <select
-            className="browser-default size-dropdown-menu"
-            onChange={this.handleSizeChange}
-            defaultValue={defaultSize}
+        </div>
+        <div className="text-center justify-center items-center flex">
+          <button
+            className="lg:w-44 flex text-center mt-5 w-full border p-2 shadow:md bg-gradient-to-r from-Tomato to-ChiliRed text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300"
+            type="submit"
+            name="action"
+            onClick={this.handleSubmitPrediction}
+            disabled={disablePredBtn}
           >
-            <option value="">-- Choose A Canvas Width --</option>
-            {sizeList}
-          </select>
+            <div className="text-center justify-center items-center mx-auto">
+              Predict{predCountdown}
+            </div>
+          </button>
         </div>
-
-        <div className="p5-canvas">
-          <ReactP5Wrapper className="P5Wrapper" sketch={this.sketch} />
-        </div>
-
-        <button
-          className="btn waves-effect waves-light blue darken-1 submit-prediction"
-          type="submit"
-          name="action"
-          onClick={this.handleSubmitPrediction}
-          disabled={disablePredBtn}
-        >
-          Predict{predCountdown}
-        </button>
-
         {this.state.predictionProgress ? (
           <div className="waiting-for-prediction">
             <h5>{this.state.predictionProgress}</h5>
