@@ -4,7 +4,7 @@ from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import default_storage
 from django.http import FileResponse
-
+from django.core.files.storage import FileSystemStorage
 
 from rest_framework.decorators import api_view
 
@@ -100,8 +100,9 @@ def data_return(request):
     # audio = MP3("static/speakwise/output.mp3")
     
 
-    n=prediction("static/speakwise/output.mp3")
-    # n=prediction(filepath)
+    # n=prediction("static/speakwise/output.mp3")
+    n=prediction(filepath)
+
     if n==0:
         visualize([{'range': [0, 1], 'color': 'red'}],{'text': "English Fluency on Beginner level", 'font': {'size': 30}})
     elif n==1:
