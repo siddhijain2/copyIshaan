@@ -2,7 +2,7 @@ import { useState } from "react";
 import Text from "./Text";
 
 function TextToSpeech(){
-
+    console.log("Text To Speech called")
     const msg = new SpeechSynthesisUtterance();
 
     const speechHandler = (msg) => {

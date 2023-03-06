@@ -9,9 +9,9 @@ from kalamkaari.models import WordStoreBeginner,WordStoreAdvance
 class WordStoreBeginnerSerializer(serializers.ModelSerializer):
   class Meta:
     model = WordStoreBeginner
-    fields = ['id','word','definition','audio_file']
+    fields = ['word','definition','audio_file']
 
 class WordStoreAdvanceSerializer(serializers.ModelSerializer):
   class Meta:
     model = WordStoreAdvance
-    fields = ['id','word','definition','audio_file']
+    fields = ['word','definition','audio_file']
