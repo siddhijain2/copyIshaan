@@ -8,7 +8,7 @@ import { getWord, useTimer } from '../../services'
 import audios from './A.mp3'
 
 function Kalamkaari({ theme, level }) {
-  const [words, setWords] = useState('hi')
+  const [words, setWords] = useState('')
   const [isPlaying, setIsPlaying] = useState(false)
   const { timer, handleStart, handlePause } = useTimer()
   const audio = new Audio(audios)
