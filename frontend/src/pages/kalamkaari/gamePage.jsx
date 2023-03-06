@@ -29,10 +29,10 @@ function Kalamkaari({ theme, level }) {
       <div class="container mx-auto text-grey-darkest mt-40 mb-20">
         <div class=" -mx-2 ">
           <Timer time={timer} />
-          <div class="px-4 border-black">
-              <div class="w-full  md:mx-2 mb-4 md:mb-0 border-black">
-                <div class="bg-primary rounded-lg overflow-hidden shadow-sm border-black relative">
-                  <div class=" pt-4 h-auto md:h-40 lg:h-[80%] border-black ">
+          <div class="px-4">
+              <div class="w-full  md:mx-2 mb-4 md:mb-0 ">
+                <div class="bg-primary rounded-lg overflow-hidden shadow-sm  relative">
+                  <div class=" pt-4 h-auto md:h-40 lg:h-[80%] ">
                     {isPlaying === false ? (
                       <div className=" text-center  ">
                         <button
