@@ -2,12 +2,12 @@ import { useState } from 'react'
 
 
 import { close, Logo, menu } from '../assets'
-import { navLinksGames } from '../constants'
+import { navLinks } from '../constants'
 import { getToken } from '../services/LocalStorageService';
 // import { NavLink } from 'react-router-dom';
 
 
-const Navbar = () => {
+const NavbarHome = () => {
   const [active, setActive] = useState('Home')
   const [toggle, setToggle] = useState(false)
 
@@ -21,12 +21,12 @@ const Navbar = () => {
 
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinksGames.map((nav, index) => (
+        {navLinks.map((nav, index) => (
           <li
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] transition duration-150 border-b-2 border-transparent hover:border-Tomato ${
               active === nav.title ? 'text-Tomato' : 'text-BlackOlive'
-            } ${index === navLinksGames.length - 1 ? 'mr-0' : 'mr-10'}`}
+            } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
             onClick={() => setActive(nav.title)}
           >
             <a href={nav.link}>{nav.title}</a>
@@ -50,12 +50,12 @@ const Navbar = () => {
           } p-6 bg-Tomato text-black absolute top-20 right-0 mx-4 mt-6 min-w-[90%] rounded-xl sidebar`}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
-            {navLinksGames.map((nav, index) => (
+            {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
                   active === nav.title ? 'text-white' : 'text-dimWhite'
-                } ${index === navLinksGames.length - 1 ? 'mb-0' : 'mb-4'}`}
+                } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
                 onClick={() => setActive(nav.title)}
               >
                 <a href={nav.link}>{nav.title}</a>
@@ -70,7 +70,7 @@ const Navbar = () => {
 }
 
 
-export default Navbar
+export default NavbarHome
 
 
 //           <Button component={NavLink} to='/' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Home</Button>
