@@ -20,6 +20,10 @@ import trashIcon from "./trash_icon.svg";
 import timer from "./timer_hour.png";
 import plusCircle from "./plus_circle.svg";
 import minusCircle from "./minus_circle.svg";
+import flu_advanced from "./flu_advanced.png";
+import flu_beginner from "./flu_beginner.png";
+import flu_intermediate from "./flu_intermediate.png";
+
 
 export {
   kalamkaari,
@@ -44,4 +48,7 @@ export {
   undoIcon,
   minusCircle,
   timer,
+  flu_advanced,
+  flu_beginner,
+  flu_intermediate
 };
