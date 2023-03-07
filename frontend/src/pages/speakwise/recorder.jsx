@@ -1,47 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import axios from "axios";
 
 const Recorder = () => {
-  
-  const [imageSrc, setImageSrc] = useState('');
+  const [recordingTime, setRecordingTime] = useState(-1);
   const recorderControls = useAudioRecorder();
+
+  // useEffect(() => {
+  //   setRecordingTime(recorderControls.recordingTime);
+  // });
+
   const addAudioElement = async (blob) => {
     const url = URL.createObjectURL(blob);
     const audio = document.createElement("audio");
     audio.src = url;
     audio.controls = true;
     console.log("file: ", audio);
-    
+
     const fd = new FormData();
     fd.append("audio_file", blob, "filename.mp3");
     var response = await axios.post("speakwise/", fd, {
       headers: {
         "content-type": "multipart/form-data",
-        "Content-Length": file.length,
       },
     });
-
+    console.log(recorderControls);
     console.log(response);
-    
-    // this.setState({
-    //   prediction: response.data,
-    //   predictionProgress: "",
-    // });
-    // console.log("hi");
-    // document.body.appendChild(audio);
   };
 
   return (
     <>
-    <div>
-      <AudioRecorder
-        onRecordingComplete={(blob) => addAudioElement(blob)}
-        recorderControls={recorderControls}
-      />
-      {/* <button onClick={recorderControls.stopRecording}>Stop recording</button> */}
-    </div>
-    {/* <img src={imageSrc} alt="My Image" /> */}
+      <div>
+        <AudioRecorder
+          onRecordingComplete={(blob) => addAudioElement(blob)}
+          recorderControls={recorderControls}
+        />
+        <button onClick={recorderControls.stopRecording}>Stop recording</button>
+      </div>
+      {/* {recordingTime} */}
     </>
   );
 };

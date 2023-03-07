@@ -87,7 +87,7 @@ def data_return(request):
             
             }))
 
-        fig.show()
+        # fig.show()
         fig.write_image('static/speakwise/flu.png')
 
     audio_file = request.FILES.get('audio_file')
