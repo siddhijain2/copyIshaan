@@ -136,7 +136,7 @@ class Canvas extends Component {
     var isDrawing = false
     p.setup = () => {
       // Dev note: If there are touch problems (ie: tablets that are larger than expected - can't write with them), we can use a different callback for touchStarted and mousePressed instead of the same callback and figuring what device is being used based on window size - but instead, figure out if it were "touched" or "mouse pressed" by the functions provided below
-      canvas = p.createCanvas(this.state.canvasLength, 200)
+      canvas = p.createCanvas(this.state.canvasLength, 250)
       p.noStroke()
       canvas.mousePressed(p.startPath)
       canvas.touchStarted(p.startPath)
@@ -354,7 +354,7 @@ class Canvas extends Component {
           </select>
         </div>
 
-        <div className="p5-canvas py-4 ">
+        <div className="p5-canvas py-4">
           <ReactP5Wrapper className="P5Wrapper" sketch={this.sketch} />
         </div>
         <div className="flex flex-wrap justify-center">
