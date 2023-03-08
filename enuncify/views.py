@@ -1,10 +1,13 @@
-from django.http import HttpResponse, HttpResponseBadRequest, HttpRequest
+from django.http import HttpResponse, HttpResponseBadRequest, HttpRequest, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 import librosa
 import numpy as np
 import tensorflow as tf
 from pydub import AudioSegment
+from .models import SentenceStoreThemeOne
+import random
+
 model = tf.keras.models.load_model("enuncify/utils/models/Model.h5")
 
 @csrf_exempt
@@ -29,3 +32,17 @@ def emotion_recognition(request):
     emotions = ["neutral", "calm", "happy", "sad","angry", "fearful", "disgust", "surprised"]
     result = emotions[int(prediction)]
     return HttpResponse(result)
+
+@csrf_exempt
+@api_view(['GET'])
+def GetSentCollectiveNoun():
+    sentences = SentenceStoreThemeOne.objects.all()
+    random_sentence = random.choice(sentences)
+    data = {
+        'sentence': random_sentence.sentence,
+        'keyword': random_sentence.keyword,
+        'keyword_meaning': random_sentence.keyword_meaning,
+        'audio_file': random_sentence.audio_file.url,
+        'emotion': random_sentence.emotion
+    }
+    return JsonResponse(data)

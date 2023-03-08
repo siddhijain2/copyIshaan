@@ -4,11 +4,19 @@ import App from "./App";
 import "./App.css";
 import { Provider } from "react-redux";
 import { store } from "./pages/enuncify/reducers/store";
+import { reducer as reducer2, store2 } from './store'
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+
+function Root() {
+  return (
     <Provider store={store}>
-      {console.log(store.textToRead)}
-      <App />
+        <App />
     </Provider>
-);
+  );
+}
+root.render(<Root/>);
+
+

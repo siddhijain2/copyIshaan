@@ -3,6 +3,7 @@ import hark from "hark";
 import log from "loglevel";
 import axios from "axios";
 
+
 let speechRecognizer;
 let waitingForResultTimeout;
 let waitingForActivityTimeout;
@@ -12,7 +13,6 @@ let speaking;
 let mediaRecorder;
 let chunks = [];
 let stopped = false;
-let response;
 
 const defaultConfig = {
   onRestarting: () => {},
@@ -21,6 +21,7 @@ const defaultConfig = {
   onError: () => {},
   onStart: () => {},
   onStop: () => {},
+  onResponseReceived: () =>{},
   lang: "en-IN",
   continuous: true,
   interimResults: true,
@@ -150,14 +151,14 @@ function handleAudioStream(stream) {
       chunks.push(event.data);
     }
   };
-  mediaRecorder.onstop = () => {
+  mediaRecorder.onstop = async() => {
     console.log("Media Recorder Stopping");
     const blob = new Blob(chunks, { type: "audio/webm" });
-    sendAudioStream(blob);
+    detectEmotion(blob);
+    console.log("Current Config ...............",currentConfig);
   };
   console.log("Media Recorder started")
   mediaRecorder.start();
-  
 }
 
 function startSpeakRecognizer() {
@@ -181,13 +182,14 @@ function startSpeechRecognizer() {
     log.error(err);
   }
 }
-const sendAudioStream = async (blob) => {
+
+const detectEmotion = async (blob) => {
   const formData = new FormData();
   console.log("Blob", blob);
   formData.append("audio_file", blob, "audio.webm");
   console.log("Form Data ", formData);
 
-  response = await axios
+  const emotionResponse = await axios
     .post("Enuncify/", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -196,11 +198,14 @@ const sendAudioStream = async (blob) => {
     .then((response) => {
       // handle response from backend
       console.log("Detected Emotion ---> ",response.data);
+      localStorage.setItem("emotion", response.data);
+      localStorage.setItem("check", true);
     })
     .catch((error) => {
       // handle error
       console.error(error);
     });
+
 };
 
 function initSpeechRecognition({
@@ -236,6 +241,7 @@ export function init(config) {
 }
 
 export function start() {
+  localStorage.setItem("check",false);
   stopped = false;
   startSpeakRecognizer();
   startSpeechRecognizer();
@@ -248,7 +254,4 @@ export function stop() {
   stopSpeechRecognizer();
 }
 
-export function emotion(){
-  if(response)
-    return <div>{response.data}</div>
-}
+

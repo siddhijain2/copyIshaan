@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import * as speechRecognition from "../../pages/enuncify/services/speech-recognition.jsx";
-
+import MicOffIcon from "@material-ui/icons/MicOff";
+import MicIcon from "@mui/icons-material/Mic";
+import ReplayIcon from "@mui/icons-material/Replay";
 
 const isChrome = !!(window.chrome && window.webkitSpeechRecognition);
 
@@ -19,7 +20,7 @@ class SpeechRecognizer extends React.Component {
     talking: PropTypes.bool,
     displayResetButton: PropTypes.bool.isRequired,
     speechRecognitionSupported: PropTypes.bool,
-    speechRecognition: PropTypes.object
+    speechRecognition: PropTypes.object,
   };
 
   static defaultProps = {
@@ -36,7 +37,7 @@ class SpeechRecognizer extends React.Component {
     props.speechRecognition.init({
       interimResults: true,
       lang: props.langCode,
-      onSpeech: this.handleSpeech.bind(this)
+      onSpeech: this.handleSpeech.bind(this),
     });
   }
 
@@ -70,14 +71,14 @@ class SpeechRecognizer extends React.Component {
 
     if (!this.props.speechRecognitionSupported) {
       return (
-        <div >
+        <div className="text-center">
           <button onClick={this.openGoogleChrome}>
             <img
               alt="Google Chrome"
               src="/chrome.svg"
+              className="w-12 h-12 mr-4"
             />
-            <span
-            >{`Speech recognition is only supported by Google Chrome Desktop`}</span>
+            <span className="pt-3">{`Speech recognition is only supported by Google Chrome Desktop`}</span>
           </button>
         </div>
       );
@@ -85,9 +86,13 @@ class SpeechRecognizer extends React.Component {
 
     if (this.props.talking) {
       return (
-        <div>
-          <button onClick={this.stopTalking}>
-            <i className="material-icons">mic_off</i> {`Stop reading`}
+        <div className="text-center p-4">
+          <button
+            className="py-2 px-4 font-medium text-[16px] text-primary bg-Tomato rounded outline-none"
+            onClick={this.stopTalking}
+          >
+            <MicOffIcon/>
+            {`Stop reading`}
           </button>
         </div>
       );
@@ -95,22 +100,37 @@ class SpeechRecognizer extends React.Component {
 
     if (this.props.displayResetButton) {
       return (
-        <div>
-          <button onClick={this.props.onReset}>
-            <i className="material-icons">replay</i> {`Reset`}
+        <div className="flex justify-between px-2.3 p-4">
+          <button
+            className="py-2 px-4 font-medium text-[16px] text-primary bg-Tomato rounded outline-none"
+            onClick={this.props.onReset}
+          >
+            <ReplayIcon />
+            {`Reset`}
           </button>
-          <button  onClick={this.startTalking}>
-            <i className="material-icons">mic</i> {`Continue reading`}
+          <button
+            className=" py-2 px-4 font-medium text-[16px] text-primary bg-Tomato rounded outline-none"
+            onClick={this.startTalking}
+          >
+            <MicIcon /> {`Continue reading`}
           </button>
         </div>
       );
     }
+    if(this.props.displayResetButton){
+      <div>{localStorage.getItem("emotion")}</div>
+    }
 
     return (
-      <div>
-        <button onClick={this.startTalking}>
-          <i className='material-icons'>mic</i> {`Start reading`}
+      <div className="p-4 text-center">
+        <button
+          className="py-2 px-4 font-medium text-[16px] text-primary bg-Tomato rounded outline-none"
+          onClick={this.startTalking}
+        >
+          <MicIcon/> 
+          {`Start reading`}
         </button>
+        
       </div>
     );
   }

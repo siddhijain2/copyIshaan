@@ -95,7 +95,7 @@ class TextFeedback extends React.Component {
     const textReadedFeedback = this.props.textReadedFeedback;
     const interimTextRange = this.getInterimTextRange(textReadedFeedback);
     return (
-      <div >
+      <div className="border-2 border-gray-300 shadow-inner p-4">
         <p
           contentEditable
           suppressContentEditableWarning
@@ -104,17 +104,26 @@ class TextFeedback extends React.Component {
           onBlur={this.onBlur}
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
-         >
+          className="min-h-16 leading-5 p-4"
+        >
           {this.renderTextReadedFeedback(textReadedFeedback)}
           <TextSpeak
-            text={this.props.textToRead.slice(interimTextRange.start, interimTextRange.end)}
+            className="color: '#000'"
+            text={this.props.textToRead.slice(
+              interimTextRange.start,
+              interimTextRange.end
+            )}
             lang={this.props.lang}
-            onHover={this.onTextSpeakHover}/>
+            onHover={this.onTextSpeakHover}
+          />
           <TextSpeak
+            className="color: '#777'"
             text={this.props.textToRead.slice(interimTextRange.end)}
             lang={this.props.lang}
-            onHover={this.onTextSpeakHover}/>
+            onHover={this.onTextSpeakHover}
+          />
         </p>
+        
       </div>
     );
   }

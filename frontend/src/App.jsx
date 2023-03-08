@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainRoutes from "./routes";
-import { LogIn, SignIn, Enuncify } from "./pages";
+import { LogIn, SignIn, Enuncify,Home } from "./pages";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -57,6 +57,7 @@ function App() {
     <Router>
       <div className="bg-primary w-full overflow-hidden font-poppins">
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="*" element={<MainRoutes />} />

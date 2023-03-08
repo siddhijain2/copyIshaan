@@ -55,15 +55,42 @@ class Score extends React.Component {
     const color = this.redToGreen.colourAt(this.props.score);
     const lang = this.props.language.split(' (')[0];
     return (
-      <div >
-        {this.props.score < 100 ?
-          <CirclePie width={140} height={140} strokeWidth={15} percent={this.props.score} strokeColor={`#${color}`} labelColor={`#${color}`}/> :
-          <span ><span>100%</span></span>
-        }
-        <h2>{scoreName}</h2>
-        <p>Red: Need to work on these </p>
-        <p>Orange : Quite close....need a little bit of more practice</p>
-        <p>Green: Yayy....You got them right</p>
+      <div className="flex flex-col items-center">
+        <div className="m-5 font-bold text-xl">
+          <h1>Analysis Report </h1>
+        </div>
+        <div className="m-2">Accuracy</div>
+
+        {this.props.score < 100 ? (
+          <CirclePie
+            width={140}
+            height={140}
+            strokeWidth={15}
+            percent={this.props.score}
+            strokeColor={`#${color}`}
+            labelColor={`#${color}`}
+          />
+        ) : (
+          <span className="w-36 h-36 bg-green-500 rounded-full flex justify-center items-center">
+            <span className="w-28 h-28 text-green-500 rounded-full bg-white flex items-center justify-center font-bold text-xl">
+              100%
+            </span>
+          </span>
+        )}
+        <h2 className="mt-4">{scoreName}</h2>
+        <div className="mt-3">
+          <p>
+            <span className="text-Red">Red Words:</span> Need to work on
+            these
+          </p>
+          <p>
+            <span className="text-Orange">Orange Words:</span> You're so close,
+            keep practicing!
+          </p>
+          <p>
+            <span className='text-Green'>Green Words: </span>You're amazing, keep up the good work!{" "}
+          </p>
+        </div>
       </div>
     );
   }

@@ -27,10 +27,6 @@ class TextSpeak extends React.Component {
 
   speak = (phrase) => {
     console.log("Phrase", phrase, " Language", this.props.lang);
-    console.log(
-      "Till here working... ",
-      this.props.speechSynthesis
-    );
     this.props.speechSynthesis.speak(phrase, this.props.lang);
   };
 

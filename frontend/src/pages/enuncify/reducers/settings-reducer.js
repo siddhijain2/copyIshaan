@@ -15,7 +15,8 @@ function getDefaultDisplayTextReadedBox() {
 
 const defaultState = {
   lang: getDefaultLanguage(),
-  displayTextReadedBox: getDefaultDisplayTextReadedBox()
+  displayTextReadedBox: getDefaultDisplayTextReadedBox(),
+  
 };
 
 const reducers = {};
