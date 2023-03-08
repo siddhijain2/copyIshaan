@@ -5,7 +5,7 @@ from django.conf import settings
 class WordStoreBeginner(models.Model):
     word = models.CharField(max_length=30)
     definition = models.TextField(max_length=250)
-    audio_file =  models.FileField(upload_to='kalamkaari/audio/beginner')
+    audio_file =  models.FileField()
 
     
 
@@ -13,7 +13,7 @@ class WordStoreBeginner(models.Model):
 class WordStoreAdvance(models.Model):
     word = models.CharField(max_length=30)
     definition = models.TextField(max_length=250)
-    audio_file =  models.FileField(upload_to='kalamkaari/audio/advance')
+    audio_file =  models.FileField()
 
 
 

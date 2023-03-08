@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import MainRoutes from './routes'
 import { LogIn, SignIn, Enuncify,Home } from './pages'
+import './App.css'
 
 function App() {
   return (

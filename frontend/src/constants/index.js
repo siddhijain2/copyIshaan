@@ -32,12 +32,15 @@ export const navLinks = [
     title: 'Team',
     link: '#team',
   },
-  {
-    id: 'login',
-    title: 'Login',
-    link: '/login',
-  },
+  // {
+  //   id: 'login',
+  //   title: 'Login',
+  //   link: '/login',
+  // },
 ]
+
+
+
 
 export const navLinksGames = [
   {
