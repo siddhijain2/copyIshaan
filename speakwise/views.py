@@ -16,6 +16,7 @@ import soundfile as sf
 import tensorflow as tf
 import plotly.graph_objects as go
 from mutagen.mp3 import MP3
+# import myspsolution as mysp
 
 
 #model that i have creted..
@@ -103,12 +104,13 @@ def data_return(request):
     # n=prediction("static/speakwise/output.mp3")
     n=prediction(filepath)
 
-    if n==0:
-        visualize([{'range': [0, 1], 'color': 'red'}],{'text': "English Fluency on Beginner level", 'font': {'size': 30}})
-    elif n==1:
-        visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'}],{'text': "English Fluency on Intermediate level", 'font': {'size': 30}})
-    else:
-        visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'},{'range': [2, 3], 'color': 'green'}],{'text': "English Fluency on Advanced level", 'font': {'size': 30}})
+    # if n==0:
+    #     visualize([{'range': [0, 1], 'color': 'red'}],{'text': "English Fluency on Beginner level", 'font': {'size': 30}})
+    # elif n==1:
+    #     visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'}],{'text': "English Fluency on Intermediate level", 'font': {'size': 30}})
+    # else:
+    #     visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'},{'range': [2, 3], 'color': 'green'}],{'text': "English Fluency on Advanced level", 'font': {'size': 30}})
+
 
     # return  FileResponse('static/speakwise/flu.png', content_type='image/jpeg')
     return  HttpResponse(n)

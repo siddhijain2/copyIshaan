@@ -4,12 +4,13 @@ import axios from "axios";
 import { flu_advanced, flu_beginner, flu_intermediate } from "../../assets";
 
 const Recorder = () => {
-  // const [recordingTime, setRecordingTime] = useState(-1);
+  const [recordingTime, setRecordingTime] = useState(-1);
   const recorderControls = useAudioRecorder();
   const [fluency, setFluency] = useState(-1);
-  // useEffect(() => {
-  //   setRecordingTime(recorderControls.recordingTime);
-  // });
+  useEffect(() => {
+    if (recorderControls.recordingTime>recordingTime)
+      setRecordingTime(recorderControls.recordingTime);
+  });
 
   const addAudioElement = async (blob) => {
     const url = URL.createObjectURL(blob);
@@ -31,6 +32,7 @@ const Recorder = () => {
     console.log(recorderControls);
     console.log(response);
   };
+  
 
   return (
     <>
@@ -39,9 +41,8 @@ const Recorder = () => {
           onRecordingComplete={(blob) => addAudioElement(blob)}
           recorderControls={recorderControls}
         />
-        <button onClick={recorderControls.stopRecording}>Stop recording</button>
       </div>
-      {/* {recordingTime} */}
+      Total time= {recordingTime}
       {fluency === 0 ? (
         <img src={flu_beginner} />
       ) : fluency === 1 ? (
