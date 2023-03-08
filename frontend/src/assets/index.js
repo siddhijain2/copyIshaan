@@ -27,6 +27,10 @@ import clock from './clock.png'
 import stopwatch from './stopwatch.png'
 import profileIcon from "./profileIcon.png";
 import wrong from './wrong.png'
+import flu_advanced from "./flu_advanced.png";
+import flu_beginner from "./flu_beginner.png";
+import flu_intermediate from "./flu_intermediate.png";
+
 
 export {
   kalamkaari,
@@ -57,5 +61,8 @@ export {
   clock,
   stopwatch,
   profileIcon,
-  wrong
-}
+  wrong,
+  flu_advanced,
+  flu_beginner,
+  flu_intermediate
+};

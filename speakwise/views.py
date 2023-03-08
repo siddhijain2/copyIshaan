@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.core.files.storage import default_storage
-import audioread
-
+from django.http import FileResponse
+from django.core.files.storage import FileSystemStorage
 
 from rest_framework.decorators import api_view
 
@@ -15,6 +15,9 @@ from matplotlib.pyplot import specgram
 import soundfile as sf
 import tensorflow as tf
 import plotly.graph_objects as go
+from mutagen.mp3 import MP3
+# import myspsolution as mysp
+
 
 #model that i have creted..
 new_model = tf.keras.models.load_model("speakwise/utils/my_model.h5")
@@ -22,8 +25,7 @@ new_model = tf.keras.models.load_model("speakwise/utils/my_model.h5")
 @csrf_exempt
 def data_return(request):
     def feature_extraction2(file_name):
-        X , sample_rate = librosa.load(file_name, sr=None) #Can also load file using librosa
-        print(X,sample_rate)
+        X , sample_rate = librosa.load(file_name) #Can also load file using librosa
         if X.ndim > 1: # ndim id number of array dimensions
             X = X[:,0]
         X = X.T
@@ -49,16 +51,18 @@ def data_return(request):
     def prediction(fname):
         file_name=fname
         mfccs, rmse, spectral_flux, zcr = feature_extraction2(file_name)
-        #print(mfccs,rmse,spectral_flux,zcr)
+        # print(mfccs,rmse,spectral_flux,zcr)
 
-        # extracted_features = np.hstack([mfccs, rmse, spectral_flux, zcr])
+        extracted_features = np.hstack([mfccs, rmse, spectral_flux, zcr])
 
-        # pp2=extracted_features.reshape(1,-1)#reshaping..
+        pp2=extracted_features.reshape(1,-1)#reshaping..
 
-        # c=new_model.predict(pp2)
+        c=new_model.predict(pp2)
 
-        # values = c
-        index_max = 1
+        values = c
+        # print(values)
+        index_max = np.argmax(values)
+        # print(MP3(fname).info.length)
         return(index_max)
 
     def visualize(l2,dd):
@@ -84,19 +88,22 @@ def data_return(request):
             
             }))
 
-        fig.show()
-        fig.write_image('flu.png')
+        # fig.show()
+        fig.write_image('static/speakwise/flu.png')
 
-    # audio_file = request.FILES['audio_file']
-    # filename = 'audio.wav'
-    # # im.show()
-    # filepath = os.path.join('static/speakwise', filename)
-    # with open(filepath, 'wb') as destination:
-    #     for chunk in audio_file.chunks():
-    #         destination.write(chunk)
+    audio_file = request.FILES.get('audio_file')
+    file_name = audio_file.name
+    filepath = 'static/speakwise/'+ file_name
+    with open(filepath, 'wb+') as destination:
+        for chunk in audio_file.chunks():
+            destination.write(chunk)
 
-    n=prediction("D:\Projects\Ishaan-App\speakwise\output.mp3")
-    # print(librosa.__version__)
+    # audio = MP3("static/speakwise/output.mp3")
+    
+
+    # n=prediction("static/speakwise/output.mp3")
+    n=prediction(filepath)
+
     # if n==0:
     #     visualize([{'range': [0, 1], 'color': 'red'}],{'text': "English Fluency on Beginner level", 'font': {'size': 30}})
     # elif n==1:
@@ -104,16 +111,7 @@ def data_return(request):
     # else:
     #     visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'},{'range': [2, 3], 'color': 'green'}],{'text': "English Fluency on Advanced level", 'font': {'size': 30}})
 
-    return HttpResponse("yes")
 
-# def upload_audio(request):
-#     if request.method == 'POST':
-#         audio_file = request.FILES['audio_file']
-#     # Process the audio file here
-#         return HttpResponse('OK')
-#     else:
-#         return HttpResponseNotAllowed(['POST'])
-
-
-
+    # return  FileResponse('static/speakwise/flu.png', content_type='image/jpeg')
+    return  HttpResponse(n)
 

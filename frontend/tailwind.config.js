@@ -5,16 +5,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#fef9f8',
-        secondary: '#00f6ff',
-        Tomato: '#ef9273',
-        Isabelline: '#EDE6E3',
-        AirForceBlue: '#508CA4',
-        BlackOlive: '#36382E',
-        SeaGreen: '#0A8754',
-        DelftBlue: '#1D3461',
-        ChiliRed: '#EF846B',
-        DarkRed: '#ff6347',
+        primary: "#fef9f8",
+        secondary: "#00f6ff",
+        Tomato: "#ef9273",
+        Isabelline: "#EDE6E3",
+        AirForceBlue: "#508CA4",
+        BlackOlive: "#36382E",
+        SeaGreen: "#0A8754",
+        DelftBlue: "#1D3461",
+        ChiliRed: "#EF846B",
+        Orange: "#FFA500",
+        DarkRed: "#ff6347",
+        Green: "#008000",
+        Red: "#FF0000"
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
@@ -24,7 +27,7 @@ module.exports = {
         comicNeue: 'Comic-Neue',
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
     screens: {
