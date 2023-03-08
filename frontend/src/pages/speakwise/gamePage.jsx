@@ -17,14 +17,15 @@ function Speakwise() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const configuration = new Configuration({
-      apiKey: "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",
+      apiKey: API_KEY,
     });
 
     const openai = new OpenAIApi(configuration);
     const res = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: "Write a note about " + prompt,
+      prompt: "Write an essay on " + prompt,
       temperature: 0.7,
       max_tokens: 256,
       top_p: 1,
@@ -42,7 +43,7 @@ function Speakwise() {
 
     // split the string into an array of words
     var words = str.split(" ");
-
+    localStorage.setItem("totalwords", words.length);
     // return the length of the array
     return words.length;
   }

@@ -12,6 +12,8 @@ const Recorder = () => {
       setRecordingTime(recorderControls.recordingTime);
   });
 
+  var words = localStorage.getItem("totalwords");
+
   const addAudioElement = async (blob) => {
     const url = URL.createObjectURL(blob);
     const audio = document.createElement("audio");
@@ -52,6 +54,7 @@ const Recorder = () => {
       ) : (
         <div> Record audio to get fluency</div>
       )}
+      Words per minute = {(words*60)/recordingTime}
     </>
   );
 };
