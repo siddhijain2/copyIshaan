@@ -1,0 +1,1 @@
+web: gunicorn ishaanApp.wsgi --log-file

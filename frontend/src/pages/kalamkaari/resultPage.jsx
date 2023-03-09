@@ -15,8 +15,8 @@ function KalamkaariResult() {
       if(res.matched[index]==1)
         return "green"
       else if(res.matched[index]==2)
-        return "red"
-      else return "yellow"
+        return "#EF846B"
+      else return "red"
   }
   return (
     <>
@@ -55,9 +55,9 @@ function KalamkaariResult() {
           <p>current time:{res.cur_time}</p>
 
           <p className="mt-2 flex justify-center text-center items-center mt-2">Text recieved:
-          <div className="ml-2">
+          <div className="ml-2 font-[16px]">
           {word.split("").map((x,index)=> {
-          return <span style={{ color: handleColor(index) }}>{`${x} `}</span>;
+          return <span style={{ color: handleColor(index),fontSize:24 }}>{`${x} `}</span>;
         })}</div>
         </p>
           <p className="mt-2">

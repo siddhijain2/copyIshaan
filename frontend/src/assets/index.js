@@ -30,10 +30,10 @@ import wrong from './wrong.png'
 import flu_advanced from "./flu_advanced.png";
 import flu_beginner from "./flu_beginner.png";
 import flu_intermediate from "./flu_intermediate.png";
+import tracing from './tracing.png'
+import dictation from './dictation.jpg'
 import star_empty from "./star_empty.png";
 import star_fill from "./star_fill.png";
-
-
 
 export {
   kalamkaari,
@@ -68,6 +68,8 @@ export {
   flu_advanced,
   flu_beginner,
   flu_intermediate,
+  dictation,
+  tracing,
   star_empty,
   star_fill
 };
