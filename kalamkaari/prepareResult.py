@@ -8,8 +8,12 @@ def prepareBeginnerResult(request):
     print(request.user)
     profile=kalamkaariProfile.objects.get(user_id=request.user.id)
     cur_word=WordStoreBeginner.objects.get(id=profile.beginner_count)
+    print(cur_word)
     text_generated,possibleWord=data_return(request.data['image'].file)
+    print(text_generated)
+    print(possibleWord)
     cur_accuracy,matched,suggestions=inputHandler(text_generated,cur_word.word,possibleWord)
+    print(cur_accuracy)
     cur_time=request.data['time']
     best_time=int(cur_time)
     cur_streak=0

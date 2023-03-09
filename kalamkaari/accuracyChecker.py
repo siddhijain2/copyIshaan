@@ -9,10 +9,10 @@ def inputHandler(written = [], real = '', possibleWord = []):
     n = len(actual)
     m = len(predicted)
     assert m == len(possibleWord)
-    # print(m)
-    # print(len(possibleWord))
-    # print(actual)
-    # print(predicted)
+    print(m)
+    print(len(possibleWord))
+    print(actual)
+    print(predicted)
     matched = []
 
     j = 0
@@ -53,6 +53,7 @@ def inputHandler(written = [], real = '', possibleWord = []):
     suggestions = {''}
     limit = 1
     file = json.load(open('kalamkaari\wordSuggestion.json'))
+    print('file loaded')
 
     for i in range(n):
         x = matched[i]
@@ -64,11 +65,15 @@ def inputHandler(written = [], real = '', possibleWord = []):
             suggestions.add(file['suggest'][file['type'][actual[i]]][random.randint(0, 1)])
 
     accuracy /= len(matched)
-
+    print('accuracy calculatde')
     suggestions.remove('')
 
     if len(suggestions) == 0:
         suggestions.add(file['suggest'][file['type'][actual[0]]][random.randint(0, 1)])
+
+    print(suggestions)
+    print(matched)
+    print(accuracy)
 
     return accuracy, matched, suggestions
 
