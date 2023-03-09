@@ -56,11 +56,20 @@ def inputHandler(written = [], real = '', possibleWord = []):
 
     import json
     import random
+    import os
     accuracy = 0
     suggestions = {''}
     limit = 1
+    print('Cur Work Dir ', os.getcwd() )
     print("Loading file")
-    file = json.load(open('kalamkaari\wordSuggestion.json'))
+    try:
+        file = json.load(open('kalamkaari\wordSuggestion.json'))
+    except Exception as e:
+        print('Eror while loading')
+        print(e)
+        file = False
+
+
     print("Loaded file")
 
 
@@ -70,7 +79,7 @@ def inputHandler(written = [], real = '', possibleWord = []):
             accuracy += x/4
         else:
             accuracy += x
-        if x!=1 and len(suggestions)<limit:
+        if x!=1 and len(suggestions)<limit and file != False:
             suggestions.add(file['suggest'][file['type'][actual[i]]][random.randint(0, 1)])
 
 
@@ -80,7 +89,7 @@ def inputHandler(written = [], real = '', possibleWord = []):
     suggestions.remove('')
 
 
-    if len(suggestions) == 0:
+    if len(suggestions) == 0 and file!=False:
         suggestions.add(file['suggest'][file['type'][actual[0]]][random.randint(0, 1)])
 
 
