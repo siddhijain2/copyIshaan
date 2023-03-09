@@ -30,6 +30,10 @@ class TextSpeak extends React.Component {
     this.props.speechSynthesis.speak(phrase, this.props.lang);
   };
 
+  meaning = (phrase) => {
+  
+  }
+
   onMouseEnter = (index, event) => {
     this.setState({
       hover: index,
