@@ -190,7 +190,7 @@ const detectEmotion = async (blob) => {
   console.log("Form Data ", formData);
 
   const emotionResponse = await axios
-    .post("Enuncify/", formData, {
+    .post("/Enuncify/", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

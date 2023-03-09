@@ -10,6 +10,10 @@ import Header from "../../components/Navbar"
 import Footer from "../../components/Footer";
 import EmotionDisplay from "./displayEmotion.jsx";
 import { textToReadInfo } from "../../constants/index";
+import Modalpopup from "../../components/Modal.jsx";
+
+
+
 
 class Enuncify extends React.Component {
   static propTypes = {
@@ -29,8 +33,10 @@ class Enuncify extends React.Component {
     onUpdateTalking: PropTypes.func.isRequired,
   };
 
+
   handleSpeech = (transcriptions) => {
     const text = transcriptions.text[0].text;
+
 
     if (transcriptions.final) {
       this.props.onUpdateTextReaded(`${this.props.textReaded} ${text.trim()}`);
@@ -40,27 +46,33 @@ class Enuncify extends React.Component {
     }
   };
 
+
   resetSpeech = () => {
     this.props.onUpdateTextReaded("");
     this.props.onUpdateInterimText("");
   };
 
+
   onTextReadedChange = (event) => {
     this.props.onUpdateTextReaded(event.currentTarget.innerText);
   };
+
 
   onInterimTextReadedChange = (event) => {
     this.props.onUpdateInterimText(event.currentTarget.innerText);
   };
 
+
   onStartTalking = () => {
     this.props.onUpdateTalking(true);
   };
+
 
   onStopTalking = () => {
     this.props.onUpdateTalking(false);
     // this.props.displayEmotion = true;
   };
+
 
   render() {
     console.log("Text Readed Feedback ",this.props.textReadedFeedback);
@@ -72,6 +84,7 @@ class Enuncify extends React.Component {
     let keyword = "";
     let actualEmotion = "";
 
+
     if(textToReadInfo[text]){
       Meaning = textToReadInfo[text].meaning;
       keyword = textToReadInfo[text].keyword;
@@ -80,12 +93,31 @@ class Enuncify extends React.Component {
 
 
 
+
+
+
     return (
       <>
         <div className="flex-grow items-center">
           <Header />
           <div className="flex flex-col justify-center m-40 md-20">
-            <div>
+            <Modalpopup
+              text={
+                <ol>
+                  <li>
+                    Click on the sentence to get the correct pronunciation.{" "}
+                  </li>
+                  <li>Press Start Reading button and start speaking.</li>
+                  <li>
+                    Click on Stop Recording to get the accuracy score and
+                    incorrectly pronounced words.
+                  </li>
+                  <li>Click on Show Read Text to see what the app listened.</li>
+                  <li>Speak in a moderate pace to get the best results.</li>
+                </ol>
+              }
+            ></Modalpopup>
+            <div class="mt-5">
               <Card className="p-4 m-15 text-left min-w-90">
                 <CardActions className="p-0 m-0 border-b border-gray-300 flex justify-between">
                   <button
@@ -98,10 +130,8 @@ class Enuncify extends React.Component {
                   </button>
                   <p>
                     {this.props.displayTextReadedBox
-                      ? 
-                        this.props.textReaded
-                      : null }
-                      
+                      ? this.props.textReaded
+                      : null}
                   </p>
                 </CardActions>
                 <CardContent>
@@ -132,6 +162,7 @@ class Enuncify extends React.Component {
                 langCode={this.props.lang.code}
               />
 
+
               {displayScore ? (
                 <Score
                   score={this.props.score}
@@ -150,5 +181,12 @@ class Enuncify extends React.Component {
   }
 }
 
+
 export default Enuncify;
+
+
+
+
+
+
 

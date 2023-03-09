@@ -28,7 +28,7 @@ const Recorder = () => {
 
     const fd = new FormData();
     fd.append("audio_file", blob, "filename.mp3");
-    var response = await axios.post("speakwise/", fd, {
+    var response = await axios.post("/speakwise/", fd, {
       headers: {
         "content-type": "multipart/form-data",
       },

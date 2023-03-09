@@ -33,6 +33,7 @@
     "react-audio-voice-recorder": "^1.0.4",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-modal": "^3.16.1",
     "react-p5-wrapper": "^4.1.0",
     "react-redux": "^8.0.5",
     "react-router": "^6.8.1",
