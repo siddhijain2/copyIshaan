@@ -51,7 +51,7 @@ const Recorder = () => {
           recorderControls={recorderControls}
         />
       </div>
-      Total time= {recordingTime}
+      {/* Total time= {recordingTime} */}
       {/* {fluency === 0 ? (
         <>
           <img

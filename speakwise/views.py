@@ -51,7 +51,6 @@ def data_return(request):
     def prediction(fname):
         file_name=fname
         mfccs, rmse, spectral_flux, zcr = feature_extraction2(file_name)
-        # print(mfccs,rmse,spectral_flux,zcr)
 
         extracted_features = np.hstack([mfccs, rmse, spectral_flux, zcr])
 
@@ -60,9 +59,7 @@ def data_return(request):
         c=new_model.predict(pp2)
 
         values = c
-        # print(values)
         index_max = np.argmax(values)
-        # print(MP3(fname).info.length)
         return(index_max)
 
     def visualize(l2,dd):
@@ -98,20 +95,6 @@ def data_return(request):
         for chunk in audio_file.chunks():
             destination.write(chunk)
 
-    # audio = MP3("static/speakwise/output.mp3")
-    
-
-    # n=prediction("static/speakwise/output.mp3")
     n=prediction(filepath)
-
-    # if n==0:
-    #     visualize([{'range': [0, 1], 'color': 'red'}],{'text': "English Fluency on Beginner level", 'font': {'size': 30}})
-    # elif n==1:
-    #     visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'}],{'text': "English Fluency on Intermediate level", 'font': {'size': 30}})
-    # else:
-    #     visualize([{'range': [0, 1], 'color': 'red'},{'range': [1, 2], 'color': 'yellow'},{'range': [2, 3], 'color': 'green'}],{'text': "English Fluency on Advanced level", 'font': {'size': 30}})
-
-
-    # return  FileResponse('static/speakwise/flu.png', content_type='image/jpeg')
     return  HttpResponse(n)
 
