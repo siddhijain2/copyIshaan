@@ -30,7 +30,8 @@ import wrong from './wrong.png'
 import flu_advanced from "./flu_advanced.png";
 import flu_beginner from "./flu_beginner.png";
 import flu_intermediate from "./flu_intermediate.png";
-
+import tracing from './tracing.png'
+import dictation from './dictation.jpg'
 
 export {
   kalamkaari,
@@ -64,5 +65,7 @@ export {
   wrong,
   flu_advanced,
   flu_beginner,
-  flu_intermediate
+  flu_intermediate,
+  dictation,
+  tracing,
 };

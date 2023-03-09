@@ -25,7 +25,7 @@ def inputHandler(written = [], real = '', possibleWord = []):
         elif predicted[j] != ' ':
             f = False
             for item in possibleWord[j]:
-                if item == actual[i]:
+                if item.lower() == actual[i]:
                     f = True
             if f == True:
                 matched.append(2)

@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { MenuItem, TextField } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import { useNavigate } from 'react-router-dom'
-import { close, Logo, menu } from '../assets'
+import { close, Logo, menu, profileIcon } from '../assets'
 import { navLinksGames } from '../constants'
 import { getToken } from '../services/LocalStorageService'
 import { useGetLoggedUserQuery } from '../services/userAuthApi';
-
 
 const useStyles = makeStyles({
   root: {
@@ -41,22 +40,18 @@ const useStyles = makeStyles({
   },
 })
 
-
 const Navbar = () => {
   const [toggle, setToggle] = useState(false)
   const [game, setGame] = React.useState('')
   const classes = useStyles()
   const navigate = useNavigate()
 
-
   const handleChange = (event) => {
     navigate(event)
   }
 
-
   const { access_token } = getToken()
   const user = useGetLoggedUserQuery(access_token)
-
 
   return (
     <nav className="fixed top-0 z-50 bg-primary w-full flex pb-2 p-4 justify-between shadow-sm items-center navbar">
@@ -90,7 +85,10 @@ const Navbar = () => {
           <li
             key = 'profile'
             className={`mr-5 font-poppins font-normal cursor-pointer text-[16px] transition duration-150 border-b-2 border-transparent hover:border-Tomato`}>
-          <a href='/'>{ user.data.name }</a>
+            <div className='flex'>
+              <img src={profileIcon} alt="logo" className=" h-8 w-8" />
+              <a href='/' className="mt-1">Hi, { user.data.name }</a>
+            </div>
           </li>
           :
           <li
@@ -107,7 +105,6 @@ const Navbar = () => {
         </li> */}
       </ul>
 
-
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <img
           src={toggle ? close : menu}
@@ -115,7 +112,6 @@ const Navbar = () => {
           className=" h-[40px] object-contain"
           onClick={() => setToggle(!toggle)}
         />
-
 
         <div
           className={`${
@@ -141,7 +137,3 @@ const Navbar = () => {
 
 
 export default Navbar
-
-
-
-

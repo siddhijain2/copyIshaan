@@ -4,20 +4,16 @@ import { navLinks } from '../constants'
 import { getToken } from '../services/LocalStorageService';
 import { useGetLoggedUserQuery } from '../services/userAuthApi';
 
-
 const NavbarHome = () => {
   const [active, setActive] = useState('Home')
   const [toggle, setToggle] = useState(false)
 
-
   const { access_token } = getToken();
   const user = useGetLoggedUserQuery(access_token)
-  // console.log(user)
-  // console.log('+++++++')
+
   return (
     <nav className="fixed top-0 z-50 bg-primary w-full flex pb-2 p-4 justify-between shadow-sm items-center navbar">
       <img src={Logo} alt="logo" className=" h-[80px]" />
-
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
@@ -40,7 +36,7 @@ const NavbarHome = () => {
           >
           <div className='flex'>
           <img src={profileIcon} alt="logo" className=" h-8 w-8" />
-          <a href='/' className="mt-1">{ user.data.name }</a>
+          <a href='/' className="mt-1">Hi, { user.data.name }</a>
           </div>
           </li>
           :
@@ -55,7 +51,6 @@ const NavbarHome = () => {
         </li>}
       </ul>
 
-
       <div className="sm:hidden flex flex-1 justify-end items-center">
         <img
           src={toggle ? close : menu}
@@ -63,7 +58,6 @@ const NavbarHome = () => {
           className=" h-[40px] object-contain"
           onClick={() => setToggle(!toggle)}
         />
-
 
         <div
           className={`${
@@ -107,7 +101,4 @@ const NavbarHome = () => {
   )
 }
 
-
 export default NavbarHome
-
-

@@ -9,6 +9,7 @@
     "@material-ui/icons": "^4.11.3",
     "@material/typography": "^14.0.0",
     "@mui/icons-material": "^5.11.11",
+    "@mui/joy": "^5.0.0-alpha.70",
     "@mui/material": "^5.11.11",
     "@mui/styles": "^5.11.11",
     "@reduxjs/toolkit": "^1.9.3",
