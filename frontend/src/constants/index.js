@@ -211,13 +211,6 @@ export const footerLinks = [
 ]
 
 export const textToReadInfo = {
-  "The flock of birds in the sky is such a beautiful sight!": {
-    id: "The flock of birds in the sky is such a beautiful sight!",
-    emotion: "calm",
-    keyword: "flock",
-    meaning:
-      "a number of birds of one kind feeding, resting, or travelling together.",
-  },
   "Wow, look at that swarm of butterflies!": {
     id: "Wow, look at that swarm of butterflies!",
     emotion: "surprise",
@@ -229,5 +222,12 @@ export const textToReadInfo = {
     emotion: "happy",
     keyword: "dozen",
     meaning: "a group or set of twelve.",
+  },
+  "The flock of birds in the sky is such a beautiful sight! ": {
+    id: "The flock of birds in the sky is such a beautiful sight!",
+    emotion: "calm",
+    keyword: "flock",
+    meaning:
+      "a number of birds of one kind feeding, resting, or travelling together.",
   },
 };
