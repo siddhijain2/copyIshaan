@@ -30,6 +30,9 @@ import wrong from './wrong.png'
 import flu_advanced from "./flu_advanced.png";
 import flu_beginner from "./flu_beginner.png";
 import flu_intermediate from "./flu_intermediate.png";
+import star_empty from "./star_empty.png";
+import star_fill from "./star_fill.png";
+
 
 
 export {
@@ -64,5 +67,7 @@ export {
   wrong,
   flu_advanced,
   flu_beginner,
-  flu_intermediate
+  flu_intermediate,
+  star_empty,
+  star_fill
 };

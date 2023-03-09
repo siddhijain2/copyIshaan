@@ -64,7 +64,7 @@ function Speakwise() {
               <CircularProgress />
             ) : (
               <button
-                class="mt-5 w-full border p-2 shadow:md bg-gradient-to-r from-Tomato to-ChiliRed text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300"
+                class="mt-5 border p-2 shadow:md bg-gradient-to-r from-Tomato to-ChiliRed text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300"
                 onClick={handleSubmit}
                 type="submit"
               >
