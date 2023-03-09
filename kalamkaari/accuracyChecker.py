@@ -1,5 +1,5 @@
-import json
-import random
+
+
 
 
 def inputHandler(written = [], real = '', possibleWord = []):
@@ -54,8 +54,8 @@ def inputHandler(written = [], real = '', possibleWord = []):
         print('//////////////////')
 
 
-
-
+    import json
+    import random
     accuracy = 0
     suggestions = {''}
     limit = 1
