@@ -28,7 +28,7 @@ function Kalamkaari({ theme, level }) {
       setIsPlaying(true)
       handleStart()
       const access_token = getToken().access_token
-      const url = `http://127.0.0.1:8000/kalamkaari/word/${theme}/${level}/`
+      const url = `kalamkaari/word/${theme}/${level}/`
       console.log(getToken().access_token)
       try{
       const res = await axios.get(url, { headers: { Authorization: `Bearer ${access_token}` }})

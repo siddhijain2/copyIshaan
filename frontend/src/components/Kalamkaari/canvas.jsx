@@ -66,7 +66,7 @@ class Canvas extends Component {
     fd.append('image', file)
     fd.append('time', this.props.time)
     var response = await axios
-      .post(`http://127.0.0.1:8000/kalamkaari/predict/${this.props.level}/`, fd, {
+      .post(`kalamkaari/predict/${this.props.level}/`, fd, {
         headers: {
           'content-type': 'multipart/form-data',
           Authorization: `Bearer ${access_token}`,
