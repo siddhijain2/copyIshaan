@@ -63,8 +63,8 @@ class Score extends React.Component {
 
         {this.props.score < 100 ? (
           <CirclePie
-            width={140}
-            height={140}
+            width={120}
+            height={120}
             strokeWidth={15}
             percent={this.props.score}
             strokeColor={`#${color}`}
