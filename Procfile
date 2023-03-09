@@ -1,1 +1,1 @@
-web: gunicorn ishaanApp.wsgi --log-file
+web: gunicorn ishaanApp.wsgi --log-file -
