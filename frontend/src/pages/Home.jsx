@@ -3,6 +3,7 @@ import styles from '../style'
 import { games, members } from '../constants'
 import { Hero, Card, About } from '../components/Home'
 import TeamCard from '../components/Home/Team'
+import Footer from '../components/Home/Footer'
 import NavbarHome from '../components/NavbarHome'
 
 function Home() {
@@ -49,6 +50,7 @@ function Home() {
             ))}
           </div>
         </div>
+        <Footer/>
       </div>
     </>
   )
