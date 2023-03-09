@@ -86,16 +86,23 @@ class Enuncify extends React.Component {
           <Header />
           <div className="flex flex-col justify-center m-40 md-20">
             <div>
-              <Card className="p-5 m-15 text-left min-w-90">
+              <Card className="p-4 m-15 text-left min-w-90">
                 <CardActions className="p-0 m-0 border-b border-gray-300 flex justify-between">
                   <button
                     className="pt-13"
                     onClick={this.props.toggleDisplayTextReadedBox}
                   >
                     {this.props.displayTextReadedBox
-                      ? `Hide text read`
-                      : `Show text read`}
+                      ? `Hide readed text`
+                      : `Show readed text`}
                   </button>
+                  <p>
+                    {this.props.displayTextReadedBox
+                      ? 
+                        this.props.textReaded
+                      : null }
+                      
+                  </p>
                 </CardActions>
                 <CardContent>
                   <TextFeedback
@@ -109,10 +116,7 @@ class Enuncify extends React.Component {
                     onEditTextToRead={this.resetSpeech}
                   />
                   <div>
-                    {keyword} :
-                    {
-                      Meaning
-                    }
+                    {keyword} :{Meaning}
                   </div>
                 </CardContent>
               </Card>
@@ -134,26 +138,10 @@ class Enuncify extends React.Component {
                   language={this.props.lang.englishName}
                 />
               ) : null}
-              {displayScore ? <EmotionDisplay rightEmotion = {actualEmotion}/> : null}
+              {displayScore ? (
+                <EmotionDisplay rightEmotion={actualEmotion} />
+              ) : null}
             </div>
-            {this.props.displayTextReadedBox ? (
-              <Grid item xs={12} sm={12} lg={6}>
-                <Card className="p-5 m-15 text-left min-w-90 mt-20">
-                  <CardHeader title={`Text read`}></CardHeader>
-                  <CardContent>
-                    <h5>{`Final text`}</h5>
-                    <p
-                      contentEditable
-                      suppressContentEditableWarning
-                      onBlur={this.onTextReadedChange}
-                      className="min-h-2/5 m-0 leading-5 border border-gray-300 p-4 shadow-inner"
-                    >
-                      {this.props.textReaded}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ) : null}
           </div>
           <Footer />
         </div>

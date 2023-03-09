@@ -97,14 +97,14 @@ class TextFeedback extends React.Component {
     return (
       <div className="border-2 border-gray-300 shadow-inner p-4">
         <p
-          contentEditable
+          contentEditable = "false"
           suppressContentEditableWarning
           onFocus={this.props.onEditTextToRead}
           onPaste={this.onPaste}
           onBlur={this.onBlur}
           onMouseEnter={this.onMouseEnter}
           onMouseLeave={this.onMouseLeave}
-          className="min-h-16 leading-5 p-4"
+          className="min-h-10 leading-5 p-4"
         >
           {this.renderTextReadedFeedback(textReadedFeedback)}
           <TextSpeak
