@@ -51,7 +51,7 @@ def inputHandler(written = [], real = '', possibleWord = []):
 
     accuracy = 0
     suggestions = {''}
-    limit = 3
+    limit = 1
     file = json.load(open('kalamkaari\wordSuggestion.json'))
 
     for i in range(n):

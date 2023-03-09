@@ -15,8 +15,8 @@ function KalamkaariResult() {
       if(res.matched[index]==1)
         return "green"
       else if(res.matched[index]==2)
-        return "red"
-      else return "#EF846B"
+        return "#EF846B"
+      else return "red"
   }
   return (
     <>
