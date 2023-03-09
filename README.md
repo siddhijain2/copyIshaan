@@ -13,6 +13,7 @@ To install and run the app locally, follow these steps:
 - Change directory to the frontend directory.
 - Install the Node.js dependencies using npm: npm install.
 - Change back to the project root directory.
+- Collect static file using python manage.py collectstatic
 - Create the React build for Django using the command: npm run-script build
 - Start the Django development server: python manage.py runserver.
 
