@@ -19,7 +19,8 @@ function Kalamkaari({ theme, level }) {
   const { timer, handleStart, handlePause } = useTimer()
   const [font, setFont] = useState('poppins')
   const handleChange = (event) => {
-    console.log(event.target.value)
+    console.log("Check Font",event.target.value
+    )
     setFont( event.target.value)
   }
 
@@ -41,7 +42,6 @@ function Kalamkaari({ theme, level }) {
         console.log(err)
       }
   }
-  console.log(font)
   return (
     <>
       <div class={`container mx-auto text-grey-darkest mt-40 mb-20 font-${font} text-[20px]`}>

@@ -209,3 +209,25 @@ export const footerLinks = [
     ],
   },
 ]
+
+export const textToReadInfo = {
+  "Wow, look at that swarm of butterflies!": {
+    id: "Wow, look at that swarm of butterflies!",
+    emotion: "surprise",
+    keyword: "swarm",
+    meaning: "a large or dense group of flying insects.",
+  },
+  "Yay!! Mummy bought dozens of bananas.": {
+    id: "Yay!! Mummy bought dozens of bananas.",
+    emotion: "happy",
+    keyword: "dozen",
+    meaning: "a group or set of twelve.",
+  },
+  "The flock of birds in the sky is such a beautiful sight! ": {
+    id: "The flock of birds in the sky is such a beautiful sight!",
+    emotion: "calm",
+    keyword: "flock",
+    meaning:
+      "a number of birds of one kind feeding, resting, or travelling together.",
+  },
+};

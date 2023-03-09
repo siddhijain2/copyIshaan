@@ -1,6 +1,6 @@
 import ThemePage from "./themePage.jsx";
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes, { string } from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import { Card,CardActions, CardContent, CardHeader } from "@material-ui/core";
 import TextFeedback from "../../components/Enuncify/text-feedback.js";
@@ -8,6 +8,8 @@ import SpeechRecognizer from "../../components/Enuncify/speech-recognizer.js";
 import Score from "../../components/Enuncify/score.js";
 import Header from "../../components/Navbar"
 import Footer from "../../components/Footer";
+import EmotionDisplay from "./displayEmotion.jsx";
+import { textToReadInfo } from "../../constants/index";
 
 class Enuncify extends React.Component {
   static propTypes = {
@@ -63,6 +65,20 @@ class Enuncify extends React.Component {
   render() {
     console.log("Text Readed Feedback ",this.props.textReadedFeedback);
     const displayScore = !this.props.talking && this.props.textReadedFeedback.length > 0;
+    localStorage.removeItem("emotion");
+    let text = this.props.textToRead;
+    console.log(typeof(text));
+    let Meaning = "";
+    let keyword = "";
+    let actualEmotion = "";
+
+    if(textToReadInfo[text]){
+      Meaning = textToReadInfo[text].meaning;
+      keyword = textToReadInfo[text].keyword;
+      actualEmotion = textToReadInfo[text].emotion;
+    }
+
+
 
     return (
       <>
@@ -70,16 +86,23 @@ class Enuncify extends React.Component {
           <Header />
           <div className="flex flex-col justify-center m-40 md-20">
             <div>
-              <Card className="p-5 m-15 text-left min-w-90">
+              <Card className="p-4 m-15 text-left min-w-90">
                 <CardActions className="p-0 m-0 border-b border-gray-300 flex justify-between">
                   <button
                     className="pt-13"
                     onClick={this.props.toggleDisplayTextReadedBox}
                   >
                     {this.props.displayTextReadedBox
-                      ? `Hide text read`
-                      : `Show text read`}
+                      ? `Hide readed text`
+                      : `Show readed text`}
                   </button>
+                  <p>
+                    {this.props.displayTextReadedBox
+                      ? 
+                        this.props.textReaded
+                      : null }
+                      
+                  </p>
                 </CardActions>
                 <CardContent>
                   <TextFeedback
@@ -92,6 +115,9 @@ class Enuncify extends React.Component {
                     onTextToReadChange={this.props.onUpdateTextToRead}
                     onEditTextToRead={this.resetSpeech}
                   />
+                  <div>
+                    {keyword} :{Meaning}
+                  </div>
                 </CardContent>
               </Card>
               <SpeechRecognizer
@@ -112,34 +138,11 @@ class Enuncify extends React.Component {
                   language={this.props.lang.englishName}
                 />
               ) : null}
+              {displayScore ? (
+                <EmotionDisplay rightEmotion={actualEmotion} />
+              ) : null}
             </div>
-            {this.props.displayTextReadedBox ? (
-              <Grid item xs={12} sm={12} lg={6}>
-                <Card className="p-5 m-15 text-left min-w-90 mt-20">
-                  <CardHeader title={`Text read`}></CardHeader>
-                  <CardContent>
-                    <h5>{`Final text`}</h5>
-                    <p
-                      contentEditable
-                      suppressContentEditableWarning
-                      onBlur={this.onTextReadedChange}
-                      className="min-h-2/5 m-0 leading-5 border border-gray-300 p-4 shadow-inner"
-                    >
-                      {this.props.textReaded}
-                      <h1>Detected Emotion</h1>{" "}
-                      {localStorage.getItem("emotion")}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ) : null}
           </div>
-          {/* {this.props.displayTextReadedBox ? (
-            <div>
-              {console.log("Emotion Detecting")}
-              <h1>Detected Emotion</h1> {localStorage.getItem("emotion")}{" "}
-            </div>
-          ) : null} */}
           <Footer />
         </div>
       </>
