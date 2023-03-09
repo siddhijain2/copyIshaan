@@ -7,7 +7,13 @@ def Beginner(request):
     print(request.user.id)
     profile=kalamkaariProfile.objects.get(user_id=request.user.id)
     print(profile)
-    word=WordStoreBeginner.objects.get(id=profile.beginner_count+1)
+    try:
+        word=WordStoreBeginner.objects.get(id=profile.beginner_count+1)
+    except:
+        profile.beginner_count=0
+        profile.save()
+        profile=kalamkaariProfile.objects.get(user_id=request.user.id)
+        word=WordStoreBeginner.objects.get(id=profile.beginner_count+1)
     print('++++++++++')
     profile.beginner_count+=1
     profile.save()
@@ -22,7 +28,13 @@ def Advance(request):
     profile=kalamkaariProfile.objects.get(user_id=request.user.id)
     print(profile)
     print('++++++++++++++')
-    word=WordStoreAdvance.objects.get(id=profile.advance_count+1)
+    try:
+        word=WordStoreAdvance.objects.get(id=profile.advance_count+1)
+    except:
+        profile.advance_count=0
+        profile.save()
+        profile=kalamkaariProfile.objects.get(user_id=request.user.id)
+        word=WordStoreAdvance.objects.get(id=profile.advance_count+1)
     profile.advance_count+=1
     profile.save()
     print('++++++++++')
