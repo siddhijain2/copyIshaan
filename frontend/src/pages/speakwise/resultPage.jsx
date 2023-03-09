@@ -21,50 +21,48 @@ function SpeakwiseResult() {
   return (
     <>
       <div class="max-w-[650px] py-4 px-8 bg-[#F3E5AB] shadow-lg rounded-lg mx-auto my-44 h-[75%]">
-        <div className="mt-10 justify-center text-center items-center relative">
+        <div className="mt-4 justify-center text-center items-center relative">
           {/* <div class=" flex w-50 h-auto justify-center text-center items-center mt-2"> */}
-            {f === "0" ? (
-              <>
+          {f === "0" ? (
+            <>
               <div class=" flex w-50 h-auto justify-center text-center items-center mt-2">
-                
-                  <img src={star_fill} class="w-12 h-12 " />
-                  <img src={star_empty} class="w-12 h-12 " />
-                  <img src={star_empty} class="w-12 h-12 " />
-                </div>
-                
-                <div>
-                  English fluency is at beginner level. Needs a bit more
-                  pratice.
-                </div>
-              </>
-            ) : f === "1" ? (
-              <>
-                <div class=" flex w-50 h-auto justify-center text-center items-center mt-2">
-                  <img src={star_fill} class="w-12 h-12 " />
-                  <img src={star_fill} class="w-12 h-12 " />
-                  <img src={star_empty} class="w-12 h-12 " />
-                </div>
+                <img src={star_fill} class="w-12 h-12 " />
+                <img src={star_empty} class="w-12 h-12 " />
+                <img src={star_empty} class="w-12 h-12 " />
+              </div>
 
-                <div>
-                  Keep practicing. English fluency is at intermediate level.
-                </div>
-              </>
-            ) : f === "2" ? (
-              <>
-                <div class=" flex w-50 h-auto justify-center text-center items-center mt-2">
-                  <img src={star_fill} class="w-12 h-12 " />
-                  <img src={star_fill} class="w-12 h-12 " />
-                  <img src={star_fill} class="w-12 h-12 " />
-                </div>
+              <div class="mt-2">
+                English fluency is at beginner level. Needs a bit more pratice.
+              </div>
+            </>
+          ) : f === "1" ? (
+            <>
+              <div class=" flex w-50 h-auto justify-center text-center items-center mt-2">
+                <img src={star_fill} class="w-12 h-12 " />
+                <img src={star_fill} class="w-12 h-12 " />
+                <img src={star_empty} class="w-12 h-12 " />
+              </div>
 
-                <div>
-                  English fluency is at advanced level. You're doing great!
-                </div>
-              </>
-            ) : (
-              <div> Record audio to get fluency</div>
-            )}
-          
+              <div class="mt-2">
+                Keep practicing. English fluency is at intermediate level.
+              </div>
+            </>
+          ) : f === "2" ? (
+            <>
+              <div class=" flex w-50 h-auto justify-center text-center items-center mt-2">
+                <img src={star_fill} class="w-12 h-12 " />
+                <img src={star_fill} class="w-12 h-12 " />
+                <img src={star_fill} class="w-12 h-12 " />
+              </div>
+
+              <div class="mt-2">
+                English fluency is at advanced level. You're doing great!
+              </div>
+            </>
+          ) : (
+            <div> Record audio to get fluency</div>
+          )}
+
           <div class=" flex justify-center text-center items-center mt-2">
             <div>Words per minute = {wpm}</div>
           </div>
