@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
-  mode: "jit",
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  mode: 'jit',
   theme: {
     extend: {
       colors: {
@@ -20,20 +20,24 @@ module.exports = {
         Red: "#FF0000"
       },
       fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
+        poppins: ['Poppins', 'sans-serif'],
+        novaFlat: '"Nova Flat"',
+        arial: 'Arial',
+        roboto: 'Roboto',
+        comicNeue: 'Comic-Neue',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
     screens: {
-      xs: "480px",
-      ss: "620px",
-      sm: "768px",
-      md: "1060px",
-      lg: "1200px",
-      xl: "1700px",
+      xs: '480px',
+      ss: '620px',
+      sm: '768px',
+      md: '1060px',
+      lg: '1200px',
+      xl: '1700px',
     },
   },
   plugins: [],
-};
+}

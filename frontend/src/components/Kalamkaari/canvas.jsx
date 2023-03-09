@@ -6,6 +6,7 @@ import { getToken } from '../../services/LocalStorageService'
 import { plusCircle, minusCircle, trashIcon, undoIcon } from '../../assets'
 
 import './canvas.css'
+import ReactSwitch from 'react-switch'
 
 class Canvas extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Canvas extends Component {
       predBtnCountdown: 0,
       redirect: false,
       data: {},
+      checked:false,
     }
     this.sketch = this.sketch.bind(this)
     this.fileUploadHandler = this.fileUploadHandler.bind(this)
@@ -64,7 +66,7 @@ class Canvas extends Component {
     fd.append('image', file)
     fd.append('time', this.props.time)
     var response = await axios
-      .post('http://127.0.0.1:8000/kalamkaari/', fd, {
+      .post(`http://127.0.0.1:8000/kalamkaari/predict/${this.props.level}/`, fd, {
         headers: {
           'content-type': 'multipart/form-data',
           Authorization: `Bearer ${access_token}`,
@@ -250,7 +252,6 @@ class Canvas extends Component {
       const valuePX = e.target.value
       const width = Number(valuePX.slice(0, valuePX.length - 2))
       console.log(width)
-
       localStorage.setItem('width', width)
       console.log('canvasLength', this.state.canvasLength)
       window.location.reload()
@@ -300,6 +301,11 @@ class Canvas extends Component {
     }
   }
 
+  handleOnClickShowDefinition=(e)=>{
+    if(this.props.isPlaying)
+      this.setState({checked:e})
+  }
+
   render() {
     const { redirect } = this.state
 
@@ -307,7 +313,7 @@ class Canvas extends Component {
       console.log('worfking')
       console.log(this.state.data)
       return (
-        <Navigate to="/kalamkaari/result/" state={{ res: this.state.data }} />
+        <Navigate to="/kalamkaari/result/" state={{ res: this.state.data}} />
       )
     }
 
@@ -342,8 +348,8 @@ class Canvas extends Component {
         : `: ${this.state.predBtnCountdown}`
 
     return (
-      <div className="canvas">
-        <div className="toolbar">
+      <div className={`canvas font-['${this.props.font}']`}>
+        <div className="toolbar justify-between items-center w-full flex">
           <select
             className="browser-default size-dropdown-menu"
             onChange={this.handleSizeChange}
@@ -352,8 +358,19 @@ class Canvas extends Component {
             <option value="">-- Choose A Canvas Width --</option>
             {sizeList}
           </select>
+          <div className='flex  items-center relative'>
+            <i className='mr-2'>def:</i>
+          <ReactSwitch
+          checked={this.state.checked}
+          onChange={this.handleOnClickShowDefinition}
+          onColor="#EF846B"
+          offColor="#D3D3D3"
+          className="mr-2"
+          />
+          {this.state.checked===false?
+           "":this.props.definition}
+           </div>
         </div>
-
         <div className="p5-canvas py-4">
           <ReactP5Wrapper className="P5Wrapper" sketch={this.sketch} />
         </div>

@@ -1,0 +1,39 @@
+{
+  "type": {
+    "a": "circle",
+    "b": "circleline",
+    "c": "circle",
+    "d": "circleline",
+    "e": "circle",
+    "f": "f",
+    "g": "circleline",
+    "h": "line",
+    "i": "line",
+    "j": "line",
+    "k": "line",
+    "l": "line",
+    "m": "zigzag",
+    "n": "zigzag",
+    "o": "circle",
+    "p": "circleline",
+    "q": "circleline",
+    "r": "r",
+    "s": "s",
+    "t": "line",
+    "u": "zigzag",
+    "v": "zigzag",
+    "w": "zigzag",
+    "x": "zigzag",
+    "y": "zigzag",
+    "z": "zigzag"
+  },
+  "suggest": {
+    "circle": ["coat", "dock"],
+    "circleline": ["pop", "bud"],
+    "line": ["lime", "pile"],
+    "f": ["film", "fish"],
+    "zigzag": ["worm", "thaw"],
+    "r": ["raw", "risk"],
+    "s": ["service", "socks"]
+  }
+}

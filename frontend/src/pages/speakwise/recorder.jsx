@@ -2,13 +2,18 @@ import { useState, useEffect } from "react";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 import axios from "axios";
 import { flu_advanced, flu_beginner, flu_intermediate } from "../../assets";
+import { NavLink, useNavigate } from "react-router-dom";
+
 
 const Recorder = () => {
   const [recordingTime, setRecordingTime] = useState(-1);
   const recorderControls = useAudioRecorder();
   const [fluency, setFluency] = useState(-1);
+    const navigate = useNavigate();
+
+
   useEffect(() => {
-    if (recorderControls.recordingTime>recordingTime)
+    if (recorderControls.recordingTime > recordingTime)
       setRecordingTime(recorderControls.recordingTime);
   });
 
@@ -30,11 +35,13 @@ const Recorder = () => {
     });
 
     setFluency(response.data);
+    localStorage.setItem("fluency", response.data);
+    var wpm = (words * 60) / recordingTime;
+        localStorage.setItem("wpm", wpm);
 
-    console.log(recorderControls);
     console.log(response);
+    navigate("/speakwise/result");
   };
-  
 
   return (
     <>
@@ -45,16 +52,39 @@ const Recorder = () => {
         />
       </div>
       Total time= {recordingTime}
-      {fluency === 0 ? (
-        <img src={flu_beginner} />
+      {/* {fluency === 0 ? (
+        <>
+          <img
+            src={flu_beginner}
+            width="50%"
+            height="auto"
+            class="flex items-center justify-center"
+          />
+          <div>Words per minute = {(words * 60) / recordingTime}</div>
+        </>
       ) : fluency === 1 ? (
-        <img src={flu_intermediate} />
+        <>
+          <img
+            src={flu_intermediate}
+            width="50%"
+            height="auto"
+            class="flex items-center justify-center"
+          />
+          Words per minute = {(words * 60) / recordingTime}
+        </>
       ) : fluency === 2 ? (
-        <img src={flu_advanced} />
+        <>
+          <img
+            src={flu_advanced}
+            width="50%"
+            height="auto"
+            class="flex items-center justify-center"
+          />
+          Words per minute = {(words * 60) / recordingTime}
+        </>
       ) : (
         <div> Record audio to get fluency</div>
-      )}
-      Words per minute = {(words*60)/recordingTime}
+      )} */}
     </>
   );
 };

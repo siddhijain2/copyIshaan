@@ -135,6 +135,7 @@ def data_return(img):
     # Iterate through the images
     # All 5 models will make a prediction at each image, and the majority rules
     final_prediction = []
+    final_result=[]
     for idx, img in enumerate(final_images):
 
         char_prediction_1 = make_prediction(model_1, img)
@@ -148,7 +149,7 @@ def data_return(img):
         # Combined prediction
         final_char_prediction = model_jury_ruling(char_prediction_1, char_prediction_2, char_prediction_3, char_prediction_4, char_prediction_5)
 
-
+        pred=[char_prediction_1,char_prediction_2,char_prediction_3,char_prediction_4,char_prediction_5]
         # Differentiate between a "0" and a "O" - commented out for now
         # Problem: "O" and "0" have incredibly similar-looking samples, every model has trouble with these 2 classifications
         # Solution: The ratio of height and width of all images will determine what is a "0" (narrow) or a "O" (fat)
@@ -175,12 +176,32 @@ def data_return(img):
         # Typically, "zeroes" (0) are fairly large, we would typically rather have "o" instead if a 0 if a user makes them small
         if final_char_prediction == '0' and char_img_heights[idx] < LOWER_CASE:
             final_char_prediction = 'o'
-            
+
+        for item in pred:
+            # Convert letter to lowercase if the final prediction is a character that is drawn small, and is not found in class_mapping
+            if item.isnumeric() == False and item.lower() not in class_mapping:
+                if item.lower() in tall_uniform_lc_letters:
+                    if char_img_heights[idx] < TALL_UNIFORM_LC:
+                        item = item.lower()
+                elif char_img_heights[idx] < LOWER_CASE:
+                    item = item.lower()
+
+            # Typically, "zeroes" (0) are fairly large, we would typically rather have "o" instead if a 0 if a user makes them small
+            if item == '0' and char_img_heights[idx] < LOWER_CASE:
+                item = 'o'
+
+        print(pred)
+        print("+++---model--+++")   
+
+        final_result.append(pred)
+
         final_prediction.append(final_char_prediction)
         # print('we predict the answer is:', final_char_prediction)
         if idx in space_location:
             final_prediction.append(' ')
+            final_result.append([' ',' ',' ',' ', ' '])
 
     print('Final Prediction: ', final_prediction)
+    print('Final Result: ', final_result)
 
-    return (final_prediction)
+    return (final_prediction,final_result)

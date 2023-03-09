@@ -1,10 +1,8 @@
 import { useState } from 'react'
-
-
-import { close, Logo, menu } from '../assets'
+import { close, Logo, menu, profileIcon } from '../assets'
 import { navLinks } from '../constants'
 import { getToken } from '../services/LocalStorageService';
-// import { NavLink } from 'react-router-dom';
+import { useGetLoggedUserQuery } from '../services/userAuthApi';
 
 
 const NavbarHome = () => {
@@ -12,9 +10,10 @@ const NavbarHome = () => {
   const [toggle, setToggle] = useState(false)
 
 
-  const { access_token } = getToken()
-
-
+  const { access_token } = getToken();
+  const user = useGetLoggedUserQuery(access_token)
+  // console.log(user)
+  // console.log('+++++++')
   return (
     <nav className="fixed top-0 z-50 bg-primary w-full flex pb-2 p-4 justify-between shadow-sm items-center navbar">
       <img src={Logo} alt="logo" className=" h-[80px]" />
@@ -24,14 +23,36 @@ const NavbarHome = () => {
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] transition duration-150 border-b-2 border-transparent hover:border-Tomato ${
-              active === nav.title ? 'text-Tomato' : 'text-BlackOlive'
-            } ${index === navLinks.length - 1 ? 'mr-0' : 'mr-10'}`}
+            className={`mr-10 font-poppins font-normal cursor-pointer text-[16px] transition duration-150 border-b-2 border-transparent hover:border-Tomato ${
+              active === nav.title ? 'text-Tomato' : 'text-BlackOlive'}`}
             onClick={() => setActive(nav.title)}
-          >
+            >
             <a href={nav.link}>{nav.title}</a>
           </li>
         ))}
+        {user.data ?
+          <li
+            key = 'profile'
+            className={`mr-5 font-poppins font-normal cursor-pointer text-[16px] transition duration-150 border-b-2 border-transparent hover:border-Tomato ${
+            active === 'Profile' ? 'text-Tomato' : 'text-BlackOlive'
+          }`}
+          onClick={() => setActive('Profile')}
+          >
+          <div className='flex'>
+          <img src={profileIcon} alt="logo" className=" h-8 w-8" />
+          <a href='/' className="mt-1">{ user.data.name }</a>
+          </div>
+          </li>
+          :
+          <li
+            key = 'login'
+            className={`mr-5 font-poppins font-normal cursor-pointer text-[16px] transition duration-150 border-b-2 border-transparent hover:border-Tomato ${
+            active === 'Login' ? 'text-Tomato' : 'text-BlackOlive'
+          }`}
+          onClick={() => setActive('Login')}
+          >
+          <a href='/login'>Login</a>
+        </li>}
       </ul>
 
 
@@ -53,30 +74,40 @@ const NavbarHome = () => {
             {navLinks.map((nav, index) => (
               <li
                 key={nav.id}
-                className={`font-poppins font-medium cursor-pointer text-[16px] ${
+                className={`mb-4 font-poppins font-medium cursor-pointer text-[16px] ${
                   active === nav.title ? 'text-white' : 'text-dimWhite'
-                } ${index === navLinks.length - 1 ? 'mb-0' : 'mb-4'}`}
-                onClick={() => setActive(nav.title)}
-              >
+                }`}
+                onClick={() => setActive(nav.title)}>
                 <a href={nav.link}>{nav.title}</a>
               </li>
             ))}
+            {user.data ?
+              <li
+                key = 'profile'
+                className={`mb-2 font-poppins font-medium cursor-pointer text-[16px] ${
+                  active === 'Profile' ? 'text-white' : 'text-dimWhite'
+                }`}
+                onClick={() => setActive('Profile')}>
+              <a href='/'> { user.data.name }</a>
+              </li>
+              :
+              <li
+                key = 'login'
+                className={`mb-2 font-poppins font-medium cursor-pointer text-[16px] ${
+                  active === 'Login' ? 'text-white' : 'text-dimWhite'
+                }`}
+                onClick={() => setActive('Login')}>
+                <a href='/login'>Login</a>
+              </li>
+            }
           </ul>
         </div>
       </div>
     </nav>
-    // {access_token ? <Button component={NavLink} to='/dashboard' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Dashboard</Button> : <Button component={NavLink} to='/login' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Login/Registration</Button>}
   )
 }
 
 
 export default NavbarHome
-
-
-//           <Button component={NavLink} to='/' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Home</Button>
-//           <Button component={NavLink} to='/contact' style={({ isActive }) => { return { backgroundColor: isActive ? '#6d1b7b' : '' } }} sx={{ color: 'white', textTransform: 'none' }}>Contact</Button>
-
-
-
 
 

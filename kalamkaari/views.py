@@ -13,12 +13,18 @@ from kalamkaari.prepareResult import *
 #post api
 @csrf_exempt
 @api_view(['POST'])
-def GetResult(request):
+def GetBeginnerResult(request):
     print('++++++++++')
-    res=prepareResult(request)
+    res=prepareBeginnerResult(request)
     return HttpResponse(JsonResponse(res),status=status.HTTP_200_OK)
 
-
+#post api
+@csrf_exempt
+@api_view(['POST'])
+def GetAdvanceResult(request):
+    print('++++++++++')
+    res=prepareAdvanceResult(request)
+    return HttpResponse(JsonResponse(res),status=status.HTTP_200_OK)
 
 #get api
 
