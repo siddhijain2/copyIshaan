@@ -144,9 +144,12 @@ function handleAudioStream(stream) {
     );
     log.info("stopped_speaking");
   });
+  console.log("options------------>");
   const options = { mimeType: "audio/webm" };
   mediaRecorder = new MediaRecorder(stream, options);
+  console.log("Media Recorder Created ------------->",mediaRecorder);
   mediaRecorder.ondataavailable = (event) => {
+    console.log("On data available --------------->");
     if (event.data.size > 0) {
       chunks.push(event.data);
     }
