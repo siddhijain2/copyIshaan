@@ -8,7 +8,7 @@ from pydub import AudioSegment
 from .models import SentenceStoreThemeOne
 import random
 
-model = tf.keras.models.load_model("enuncify/utils/models/Model.h5")
+model = tf.keras.models.load_model("./enuncify/utils/models/Model.h5")
 
 @csrf_exempt
 @api_view(['POST'])
@@ -17,13 +17,13 @@ def emotion_recognition(request):
     if not audio_file:
         return HttpResponseBadRequest("No audio file provided")
     file_name = audio_file.name
-    with open("enuncify/utils/models/"+file_name, 'wb+') as destination:
+    with open("./enuncify/utils/models/"+file_name, 'wb+') as destination:
         for chunk in audio_file.chunks():
             destination.write(chunk)
-    path = "enuncify/utils/models/"+file_name
+    path = "./enuncify/utils/models/"+file_name
     audio = AudioSegment.from_file(path,format='webm')
-    audio.export("enuncify/utils/models/audio.wav",format='wav')
-    data,sampling_rate = librosa.load("enuncify/utils/models/audio.wav")
+    audio.export("./enuncify/utils/models/audio.wav",format='wav')
+    data,sampling_rate = librosa.load("./enuncify/utils/models/audio.wav")
     mfccs = np.mean(librosa.feature.mfcc(y=data, sr=sampling_rate, n_mfcc=40).T, axis=0)
     x = np.expand_dims(mfccs, axis=-1)
     x = np.expand_dims(x, axis=0)

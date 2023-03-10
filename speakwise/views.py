@@ -20,7 +20,7 @@ from mutagen.mp3 import MP3
 
 
 #model that i have creted..
-new_model = tf.keras.models.load_model("speakwise/utils/my_model.h5")
+new_model = tf.keras.models.load_model("./speakwise/utils/my_model.h5")
 
 @csrf_exempt
 def data_return(request):
@@ -86,15 +86,14 @@ def data_return(request):
             }))
 
         # fig.show()
-        fig.write_image('static/speakwise/flu.png')
+        fig.write_image('./static/speakwise/flu.png')
 
     audio_file = request.FILES.get('audio_file')
     file_name = audio_file.name
-    filepath = 'static/speakwise/'+ file_name
+    filepath = './static/speakwise/'+ file_name
     with open(filepath, 'wb+') as destination:
         for chunk in audio_file.chunks():
             destination.write(chunk)
 
     n=prediction(filepath)
     return  HttpResponse(n)
-

@@ -1,4 +1,3 @@
-
 max_ = max # cv2 * overrides python max function
 from PIL import Image
 import cv2
@@ -12,11 +11,11 @@ from kalamkaari.utils.pad_image import pad_image
 from kalamkaari.utils.cut_pictures import cut_pictures
 
 # The "model jury" 
-model_1 = keras.models.load_model("kalamkaari/utils/models/model_1.h5")
-model_2 = keras.models.load_model("kalamkaari/utils/models/model_2.h5")
-model_3 = keras.models.load_model("kalamkaari/utils/models/model_3.h5")
-model_4 = keras.models.load_model("kalamkaari/utils/models/model_4.h5")
-model_5 = keras.models.load_model("kalamkaari/utils/models/model_5.h5")
+model_1 = keras.models.load_model("./kalamkaari/utils/models/model_1.h5")
+model_2 = keras.models.load_model("./kalamkaari/utils/models/model_2.h5")
+model_3 = keras.models.load_model("./kalamkaari/utils/models/model_3.h5")
+model_4 = keras.models.load_model("./kalamkaari/utils/models/model_4.h5")
+model_5 = keras.models.load_model("./kalamkaari/utils/models/model_5.h5")
 
 def data_return(img):
 
@@ -107,7 +106,7 @@ def data_return(img):
     # Save the image to a predetermined filepath
     im = Image.open(img)
     # im.show()
-    filepath = 'static/kalamkaari/user_image.png'
+    filepath = './static/kalamkaari/user_image.png'
     im.save(filepath)
 
     # The "answer key"
