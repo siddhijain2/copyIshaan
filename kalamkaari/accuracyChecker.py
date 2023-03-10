@@ -1,7 +1,5 @@
 
 
-
-
 def inputHandler(written = [], real = '', possibleWord = []):
 
 
@@ -63,7 +61,7 @@ def inputHandler(written = [], real = '', possibleWord = []):
     print('Cur Work Dir ', os.getcwd() )
     print("Loading file")
     try:
-        file = json.load(open('kalamkaari\wordSuggestion.json'))
+        file = json.load(open('./kalamkaari/wordSuggestion.json'))
     except Exception as e:
         print('Eror while loading')
         print(e)
@@ -98,12 +96,6 @@ def inputHandler(written = [], real = '', possibleWord = []):
     print(matched)
     print(suggestions)
     return accuracy, matched, suggestions
-
-
-
-
-
-
 
 
 
