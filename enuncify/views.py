@@ -25,24 +25,32 @@ def emotion_recognition(request):
             destination.write(chunk)
     path = "./enuncify/utils/models/"+file_name
     print("Path----------->",path)
-    audio = AudioSegment.from_file(path,format='webm')
-    print("Audio------------>",audio)
-    audio.export("./enuncify/utils/models/audio.wav",format='wav')
-    print("Exporting done-------------------------->")
-    data,sampling_rate = librosa.load("./enuncify/utils/models/audio.wav")
-    print("Data,Sample Rate------------->",data,sampling_rate)
-    mfccs = np.mean(librosa.feature.mfcc(y=data, sr=sampling_rate, n_mfcc=40).T, axis=0)
-    print("mfccs---------------->",mfccs)
-    x = np.expand_dims(mfccs, axis=-1)
-    x = np.expand_dims(x, axis=0)
-    print("Data going for prediction ----------->")
-    predictions = model.predict(x)
-    print("Got the predictions -------------------> ",predictions)
-    prediction = np.argmax(predictions, axis=-1)
-    emotions = ["neutral", "calm", "happy", "sad","angry", "fearful", "disgust", "surprised"]
-    result = emotions[int(prediction)]
-    print("Recieved Result--------------->",result)
-    return HttpResponse(result)
+    try:
+        audio = AudioSegment.from_file(path, format='webm')
+        print("Audio------------>",audio)
+        audio.export("./enuncify/utils/models/audio.wav",format='wav')
+        print("Exporting done-------------------------->")
+        data,sampling_rate = librosa.load("./enuncify/utils/models/audio.wav")
+        print("Data,Sample Rate------------->",data,sampling_rate)
+        mfccs = np.mean(librosa.feature.mfcc(y=data, sr=sampling_rate, n_mfcc=40).T, axis=0)
+        print("mfccs---------------->",mfccs)
+        x = np.expand_dims(mfccs, axis=-1)
+        x = np.expand_dims(x, axis=0)
+        print("Data going for prediction ----------->")
+        predictions = model.predict(x)
+        print("Got the predictions -------------------> ",predictions)
+        prediction = np.argmax(predictions, axis=-1)
+        emotions = ["neutral", "calm", "happy", "sad","angry", "fearful", "disgust", "surprised"]
+        result = emotions[int(prediction)]
+        print("Recieved Result--------------->",result)
+        return HttpResponse(result)
+    # Do something with the audio object here
+    except FileNotFoundError:
+        print('Error: File not found')
+    except Exception as e:
+        print('Error:', e)
+    return HttpResponse("Don't know what to do")
+    
 
 @csrf_exempt
 @api_view(['GET'])
